@@ -19,5 +19,5 @@ Durante el desarrollo del proyecto se deberán aplicar buenas prácticas de desa
 - [x] Integrantes
   
 2. Prototipo de la página web:
-- [] Prototipo funcional de la aplicación web de comercio electrónico (mobile o desktop)
+- [ ] Prototipo funcional de la aplicación web de comercio electrónico (mobile o desktop)
 - [x] Definir el tipo de comercio electrónico
