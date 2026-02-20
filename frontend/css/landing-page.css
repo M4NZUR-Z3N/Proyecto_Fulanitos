@@ -1,7 +1,7 @@
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-image: url('../images/vecteezy_abstract-background-with-circles-and-light_60129796.jpeg');
+  background-image: url('/assets/images/vecteezy_abstract-background-with-circles-and-light_60129796.webp');
   background-repeat: repeat;
 }
 
@@ -13,35 +13,40 @@ body {
   background-color: #2d2c2d;
   border-color: #2d2c2d;
 }
-  
+
 .btn-primary:hover {
   background-color: #6d6d6d;
   border-color: #6d6d6d;
 }
-  
-.btn-primary:focus, .btn-primary.focus {
+
+.btn-primary:focus,
+.btn-primary.focus {
   background-color: #6d6d6d;
   border-color: #6d6d6d;
-  box-shadow: 0 0 0 0.2rem rgba(165, 147, 194, 0.5);
-}
-  
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: #2d2c2d;
-  border-color: #2d2c2d;
-}
-  
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-  background-color: #6d6d6d;
-  border-color: #6d6d6d;
-}
-  
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(165, 147, 194, 0.5);
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: #2d2c2d;
+  border-color: #2d2c2d;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: #6d6d6d;
+  border-color: #6d6d6d;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(165, 147, 194, 0.5);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
   background-color: #2d2c2d;
 }
 
@@ -55,7 +60,7 @@ body {
 }
 
 .hero-index {
-  background-image: url('../images/vecteezy_a-close-up-of-a-colorful-bird-s-wings_66071894.jpg');
+  background-image: url('/assets/images/vecteezy_a-close-up-of-a-colorful-bird-s-wings_66071894.webp');
 }
 
 .card-footer {
@@ -64,8 +69,9 @@ body {
 }
 
 #image {
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
+
 #image:hover {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
