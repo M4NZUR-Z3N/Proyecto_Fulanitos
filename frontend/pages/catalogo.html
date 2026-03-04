@@ -17,55 +17,59 @@
 
 
         <div id="bg-borroso"
-            class="d-none bg-borroso btn position-absolute top-0 start-0 h-100 w-100 opacity-50 bg-dark z-2">
+            class="d-none bg-borroso btn position-fixed top-0 start-0 vh-100 vw-100 opacity-50 bg-dark z-2">
         </div>
         <div id="detalles"
-            class="d-none detalles col-11 col-md-10 col-lg-8 position-absolute top-50 start-50 translate-middle d-flex flex-column flex-md-row mb-5 shadow-lg rounded overflow-hidden z-3">
+            class="d-none detalles position-fixed top-0 start-0 vh-100 vw-100 d-flex justify-content-center align-items-center overflow-y-auto p-2 p-md-4 z-3">
+            <div
+                class="col-11 col-md-10 col-lg-8 d-flex flex-column flex-md-row shadow-lg rounded overflow-hidden bg-white my-auto">
 
-            <div class="col-12 col-md-6 p-0" style="aspect-ratio: 1/1;">
-                <img class="img-fluid h-100" src="/assets/images/portadas/vinilo-prueba.jpg" alt="Vinilo Prueba"
-                    style="object-fit: cover;">
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-between g-2 p-3 p-lg-4 bg-white"
-                style="aspect-ratio: 1/1;">
-                <div>
-                    <p class="fs-4 fw-bold">Thriller</p>
-                    <p class="fs-4">Artista: Michael Jackson</p>
-                    <p class="fs-4">Género: Pop</p>
-                    <p class="fs-4">Año de lanzamiento: 1982</p>
-                    <p class="fs-4">Formato: Vinilo</p>
-                    <p class="fs-4">Edición: Estándar</p>
-                    <p class="fs-4">Tamaño: 12 pulgadas</p>
-                    <p class="fs-4">Velocidad: 33 RPM</p>
+                <div class="col-12 col-md-6 p-0" style="aspect-ratio: 1/1;">
+                    <img class="img-fluid h-100" src="/assets/images/portadas/michael-jackson-thriller.jpg"
+                        alt="Michael Jackson - Thriller" style="object-fit: cover;">
                 </div>
-                <div class="d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="precios d-flex flex-column">
-                            <span class="fs-5 text-dark">Precio unitario: $ 10</span>
-                            <span class="fs-5  text-dark">Precio total: $ 10</span>
-                        </div>
-                        <div class="cantidad d-flex flex-column">
-                            <p class="fs-5 text-dark">Cantidad: <span id="cantidad">1</span></p>
-                            <div class="d-flex justify-content-between">
-                                <button id="boton-menos" class="btn btn-dark">-</button>
-                                <button id="boton-mas" class="btn btn-dark">+</button>
-                            </div>
-
-                        </div>
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-between g-2 p-3 p-lg-4 bg-white">
+                    <div>
+                        <p class="fs-4 fw-bold">Thriller</p>
+                        <p class="fs-4">Artista: Michael Jackson</p>
+                        <p class="fs-4">Género: Pop</p>
+                        <p class="fs-4">Año de lanzamiento: 1982</p>
+                        <p class="fs-4">Formato: Vinilo</p>
+                        <p class="fs-4">Edición: Estándar</p>
+                        <p class="fs-4">Tamaño: 12 pulgadas</p>
+                        <p class="fs-4">Velocidad: 33 RPM</p>
                     </div>
-                    <button id="boton-añadir" class="btn btn-dark w-80 mt-4 py-2 fw-bold ">AÑADIR AL CARRITO</button>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="precios d-flex flex-column">
+                                <span class="fs-5 text-dark">Precio unitario: $ 10</span>
+                                <span class="fs-5  text-dark">Precio total: $ 10</span>
+                            </div>
+                            <div class="cantidad d-flex flex-column">
+                                <p class="fs-5 text-dark">Cantidad: <span id="cantidad">1</span></p>
+                                <div class="d-flex justify-content-between">
+                                    <button id="boton-menos" class="btn btn-dark">-</button>
+                                    <button id="boton-mas" class="btn btn-dark">+</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button id="boton-añadir" class="btn btn-dark w-80 mt-4 py-2 fw-bold ">AÑADIR AL
+                            CARRITO</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div id="disco" class="btn mt-5 col-lg-3 col-md-4 col-6">
-            <img class="img-fluid shadow-lg rounded" src="/assets/images/portadas/vinilo-prueba.jpg"
-                alt="Vinilo Prueba">
+    <div id="discos" class="row w-100">
+        <!-- Productos se añaden aqui -->
+        <div id="disco" class="btn mt-5 col-lg-2 col-md-3 col-6">
+            <img class="img-fluid shadow-lg rounded" src="/assets/images/portadas/michael-jackson-thriller.jpg"
+                alt="Michael Jackson - Thriller">
             <div class="d-flex justify-content-between">
-                <div>Nombre del producto</div>
-                <div>Precio</div>
+                <div>Thriller - Michael Jackson</div>
+                <div>$10</div>
             </div>
         </div>
 
