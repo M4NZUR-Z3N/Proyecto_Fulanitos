@@ -5,7 +5,7 @@
 
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
-      form.addEventListener('input', function (event) {
+      form.addEventListener('submit', function (event) {
         const password = document.getElementById('password')
         const confirmPassword = document.getElementById('confirmPassword')
         const feedback = confirmPassword.nextElementSibling
