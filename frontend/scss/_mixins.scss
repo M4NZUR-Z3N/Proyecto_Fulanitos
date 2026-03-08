@@ -1,0 +1,98 @@
+// ============================================
+//   SIDE B — _mixins.scss
+// ============================================
+
+// Fuente display (Playfair)
+@mixin font-display($size: null, $weight: 700) {
+  font-family: $font-display;
+  font-weight: $weight;
+  @if $size { font-size: $size; }
+}
+
+// Fuente mono (DM Mono)
+@mixin font-mono($size: null, $spacing: 0.1em) {
+  font-family: $font-mono;
+  letter-spacing: $spacing;
+  @if $size { font-size: $size; }
+}
+
+// Label de sección (etiqueta pequeña uppercase)
+@mixin section-tag {
+  @include font-mono(0.65rem, 0.25em);
+  color: $blue;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+// Título de sección
+@mixin section-title($min: 2rem, $fluid: 4vw, $max: 3rem) {
+  @include font-display(clamp(#{$min}, #{$fluid}, #{$max}));
+  line-height: 1.15;
+  color: $dark;
+
+  em {
+    font-style: italic;
+    color: $grey;
+  }
+}
+
+// Botón estilo Side B (base)
+@mixin btn-sideb($bg, $color, $hover-bg: null, $hover-color: null) {
+  background-color: $bg;
+  color: $color;
+  border: none;
+  padding: 0.9rem 2rem;
+  @include font-mono(0.8rem, 0.08em);
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: if($hover-bg, $hover-bg, darken($bg, 10%));
+    color: if($hover-color, $hover-color, $color);
+    transform: translateY(-2px);
+  }
+}
+
+// Animación de entrada (para [data-animate])
+@mixin animate-in($delay: 0s) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease $delay, transform 0.6s ease $delay;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+// Overlay oscuro sobre imagen
+@mixin img-overlay($opacity: 0.6) {
+  position: absolute;
+  inset: 0;
+  background: rgba($dark, $opacity);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+// Sombra de vinilo
+@mixin vinyl-disc($size, $duration, $opacity: 0.15) {
+  width: $size;
+  height: $size;
+  position: absolute;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    #1a1a1a 0px, #1a1a1a 2px,
+    #222 2px, #222 4px
+  );
+  opacity: $opacity;
+  animation: spin $duration linear infinite;
+}

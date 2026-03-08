@@ -1,0 +1,53 @@
+// ============================================
+//   SIDE B — _landing.scss
+// ============================================
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-image: url('../assets/images/vecteezy_abstract-background-with-circles-and-light_60129796.webp');
+  background-repeat: repeat;
+}
+
+// Override Bootstrap primary para esta página
+.bg-primary       { background-color: $dark !important; }
+.btn-primary      { background-color: $dark; border-color: $dark; }
+.btn-primary:hover { background-color: $grey; border-color: $grey; }
+
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: $grey;
+  border-color: $grey;
+  box-shadow: 0 0 0 0.2rem rgba(165, 147, 194, 0.5);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: $dark;
+}
+
+.hero-section {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.1);
+  height: 40vh;
+}
+
+.hero-index {
+  background-image: url('../assets/images/vecteezy_a-close-up-of-a-colorful-bird-s-wings_66071894.webp');
+}
+
+.card-footer {
+  background: transparent;
+  border-top: 0;
+}
+
+#image {
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+}

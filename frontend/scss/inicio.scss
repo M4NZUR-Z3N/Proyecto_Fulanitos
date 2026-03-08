@@ -1,0 +1,26 @@
+// ============================================
+//   SIDE B — inicio.scss
+//   Punto de entrada para pages/inicio.html
+// ============================================
+
+// 1. Variables propias (antes de Bootstrap para sobreescribir)
+@import 'variables';
+
+// 2. Bootstrap completo
+@import 'bootstrap/scss/bootstrap';
+
+// 3. Parciales propios
+@import 'mixins';
+@import 'base';
+@import 'navbar';
+@import 'hero';
+@import 'sections';
+
+// ── Responsive ────────────────────────────
+@media (max-width: 768px) {
+  .hero-title  { font-size: 2.5rem; }
+  .hero-cta    { flex-direction: column; }
+  .btn-hero-primary,
+  .btn-hero-outline { text-align: center; }
+  .section-title { font-size: 1.75rem; }
+}

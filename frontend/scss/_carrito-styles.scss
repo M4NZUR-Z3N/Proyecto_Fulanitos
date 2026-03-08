@@ -1,0 +1,32 @@
+// ============================================
+//   SIDE B — _carrito.scss
+// ============================================
+
+.vinilo {
+  max-height: 200px;
+
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+// Panel de resumen
+.pago {
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+}
+
+// Métodos de pago
+.metodos-pago {
+  .btn {
+    border-radius: 0 !important;
+    margin-bottom: 0.5rem;
+    text-align: left;
+
+    &:hover {
+      background-color: rgba($dark, 0.04);
+    }
+  }
+}

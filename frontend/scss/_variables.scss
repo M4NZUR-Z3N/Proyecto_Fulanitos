@@ -1,0 +1,55 @@
+// ============================================
+//   SIDE B — _variables.scss
+//   Bootstrap overrides + tokens propios
+// ============================================
+
+// ── Paleta de colores ──────────────────────
+$dark:        #2d2c2d;
+$cream:       #ede8df;
+$blue:        #2176ff;
+$gold-light:  #a2bade;
+$grey:        #6d6d6d;
+$light-bg:    #ede8df;
+
+// ── Bootstrap color overrides ─────────────
+$primary:     $blue;
+$secondary:   $grey;
+$dark:        #2d2c2d;
+$light:       $cream;
+$body-bg:     $light-bg;
+$body-color:  #2d2c2d;
+
+// ── Tipografía ─────────────────────────────
+$font-display: 'Playfair Display', Georgia, serif;
+$font-mono:    'DM Mono', monospace;
+$font-body:    'DM Sans', sans-serif;
+
+$font-family-base:       $font-body;
+$font-family-monospace:  $font-mono;
+
+// ── Bootstrap button overrides ─────────────
+$btn-border-radius:    0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
+// ── Bootstrap card overrides ───────────────
+$card-border-radius:   0;
+$card-border-color:    #2d2c2d;
+
+// ── Bootstrap input overrides ─────────────
+$input-border-radius:    0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
+$input-focus-border-color: $blue;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($blue, 0.2);
+
+// ── Navbar ────────────────────────────────
+$navbar-dark-color:          rgba(255,255,255,0.7);
+$navbar-dark-hover-color:    $blue;
+$navbar-dark-active-color:   $blue;
+
+// ── Transitions ──────────────────────────
+$transition-base: all 0.3s ease;
+
+// ── Spacing extras ───────────────────────
+$spacer: 1rem;

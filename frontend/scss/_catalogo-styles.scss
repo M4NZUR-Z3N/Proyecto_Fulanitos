@@ -1,0 +1,18 @@
+// ============================================
+//   SIDE B — _catalogo.scss
+// ============================================
+
+// Modal de detalles
+.bg-borroso {
+  cursor: pointer;
+}
+
+.detalles {
+  // overlay wrapper — cerrar al hacer click fuera
+}
+
+// Botones cantidad
+#boton-mas,
+#boton-menos {
+  min-width: 2.5rem;
+}

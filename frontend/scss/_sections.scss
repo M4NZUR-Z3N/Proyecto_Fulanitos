@@ -1,0 +1,322 @@
+// ============================================
+//   SIDE B — _sections.scss
+//   Ticker · Géneros · Destacados · Por qué · CTA · Footer
+// ============================================
+
+// ── Helpers de sección ─────────────────────
+.section-tag   { @include section-tag; }
+.section-title { @include section-title; }
+
+// ── Ticker ────────────────────────────────
+.ticker-wrap {
+  background-color: $blue;
+  overflow: hidden;
+  padding: 0.6rem 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 30s linear infinite;
+
+  span {
+    @include font-mono(0.72rem, 0.12em);
+    color: $dark;
+    font-weight: 500;
+  }
+}
+
+// ── Géneros ───────────────────────────────
+.section-generos {
+  background-color: $light-bg;
+}
+
+.genre-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem;
+  background: white;
+  border: 1px solid rgba($dark, 0.08);
+  border-radius: 2px;
+  text-decoration: none;
+  color: $dark;
+  transition: $transition-base;
+  text-align: center;
+
+  &:hover {
+    background: $dark;
+    color: white;
+    border-color: $dark;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba($dark, 0.2);
+  }
+}
+
+.genre-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.genre-card span {
+  @include font-mono(0.75rem, 0.1em);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+// ── Destacados ───────────────────────────
+.section-destacados {
+  background-color: white;
+}
+
+.ver-todo-link {
+  @include font-mono(0.75rem, 0.1em);
+  color: $dark;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid $dark;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+
+// ── Product card ──────────────────────────
+.product-card {
+  cursor: pointer;
+}
+
+.product-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: $cream;
+}
+
+.product-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  @include img-overlay(0.6);
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-add-cart {
+  background: $blue;
+  color: $dark;
+  @include font-mono(0.75rem, 0.1em);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $gold-light;
+    color: $dark;
+  }
+}
+
+.product-badge {
+  position: absolute;
+  top: 0.75rem; left: 0.75rem;
+  background: $dark;
+  color: white;
+  @include font-mono(0.6rem, 0.12em);
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  z-index: 1;
+
+  &.badge-limited {
+    background: $blue;
+    color: $dark;
+  }
+}
+
+.product-info   { padding: 1rem 0; }
+
+.product-artist {
+  @include font-mono(0.65rem, 0.15em);
+  text-transform: uppercase;
+  color: $grey;
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  @include font-display(1rem, 700);
+  color: $dark;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price  { @include font-display(1.1rem, 700); color: $dark; }
+.product-format { @include font-mono(0.6rem, 0.08em); color: $grey; text-transform: uppercase; }
+
+// ── Por qué elegirnos ─────────────────────
+.section-why {
+  background-color: $cream;
+}
+
+.why-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-top: 3px solid $dark;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba($dark, 0.1);
+  }
+
+  &.why-card-dark {
+    background: $dark;
+    border-top-color: $blue;
+
+    .why-number,
+    .why-title,
+    .why-text { color: white !important; }
+
+    .why-number { color: rgba($gold-light, 0.25) !important; }
+  }
+}
+
+.why-number {
+  @include font-display(3.5rem, 900);
+  color: $cream;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.why-title {
+  @include font-display(1.25rem, 700);
+  color: $dark;
+  margin-bottom: 0.75rem;
+}
+
+.why-text {
+  font-size: 0.9rem;
+  color: $grey;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+// ── CTA Banner ───────────────────────────
+.section-cta {
+  background-color: $dark;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: 'B';
+    @include font-display(40vw, 900);
+    color: rgba(255,255,255,0.02);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    pointer-events: none;
+    font-style: italic;
+  }
+
+  .section-tag { color: $blue; }
+}
+
+.cta-title {
+  @include font-display(clamp(1.75rem, 4vw, 3rem), 700);
+  color: white;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-cta {
+  @include btn-sideb($blue, $dark, $gold-light, $dark);
+  padding: 1rem 2.5rem;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba($gold-light, 0.3);
+  }
+}
+
+// ── Footer ───────────────────────────────
+.site-footer {
+  background-color: #1a1a1a;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-brand {
+  @include font-display(1.8rem, 900);
+  margin-bottom: 0.75rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+  line-height: 1.6;
+
+  a { color: rgba(255,255,255,0.4); text-decoration: none; }
+}
+
+.footer-heading {
+  @include font-mono(0.65rem, 0.2em);
+  text-transform: uppercase;
+  color: $blue;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0; margin: 0;
+
+  li { margin-bottom: 0.5rem; }
+
+  a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    font-weight: 300;
+
+    &:hover { color: white; }
+  }
+}
+
+.footer-divider {
+  border-color: rgba(255,255,255,0.08);
+  margin: 2rem 0 1.5rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  font-family: $font-mono;
+
+  a { color: $blue; text-decoration: none; }
+}

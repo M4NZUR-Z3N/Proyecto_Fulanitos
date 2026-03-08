@@ -1,0 +1,45 @@
+// ============================================
+//   SIDE B — _navbar.scss
+// ============================================
+
+#navbar {
+  background-color: rgba(45, 44, 45, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+  padding: 0.75rem 0;
+  transition: $transition-base;
+
+  &.scrolled {
+    background-color: rgba(45, 44, 45, 0.98) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.brand-logo {
+  @include font-display(1.5rem, 900);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand-b    { color: $blue; }
+.brand-side {
+  color: white;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+}
+
+.nav-link-custom {
+  @include font-mono(0.75rem, 0.1em);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0.75rem !important;
+
+  &:hover,
+  &.active {
+    color: $blue !important;
+  }
+}

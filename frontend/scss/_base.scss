@@ -1,0 +1,56 @@
+// ============================================
+//   SIDE B — _base.scss
+//   Estilos globales y reset mínimo
+// ============================================
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $light-bg;
+  color: $dark;
+  overflow-x: hidden;
+}
+
+// Tipografía base
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+}
+
+// Animaciones de entrada con IntersectionObserver
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(30px);
+}
+
+// Keyframes globales
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.2); }
+}
