@@ -44,7 +44,7 @@ function mostrarProductos() {
         const producto = document.createElement('div');
         producto.classList.add('btn', 'mt-5', 'col-lg-2', 'col-md-3', 'col-6');
         producto.innerHTML = `
-        <img class="img-fluid shadow-lg rounded" src="/assets/images/portadas/vinilo-base.webp"
+        <img class="img-fluid shadow-lg rounded" src="../assets/images/portadas/vinilo-base.webp"
             alt="Vinilo Base">
         <div class="d-flex justify-content-between">
             <div>Vinilo Base</div>
