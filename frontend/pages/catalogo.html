@@ -5,129 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
-    
+
     <link rel="icon" type="image/icon" href="../assets/icons/side-b.ico">
     <link rel="stylesheet" href="../css/catalogo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand brand-logo" href="inicio.html">
-                <img src="../assets/icons/side-b-full-black.ico" height="60" alt="Side B Logo">
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarMain">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="inicio.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="catalogo.html">Catálogo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom" href="carrito.html">Carrito</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-outline-light btn-sm px-4" href="sesion.html">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-light btn-sm px-4 text-dark fw-bold" href="registro.html">Registrarse</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container d-flex flex-column justify-content-center align-items-center ">
-        <h1 class="text-center mt-5">Catálogo</h1>
-
-
-        <div id="bg-borroso"
-            class="d-none bg-borroso btn position-fixed top-0 start-0 vh-100 vw-100 opacity-50 bg-dark z-2">
-        </div>
-        <div id="detalles"
-            class="d-none detalles position-fixed top-0 start-0 vh-100 vw-100 d-flex justify-content-center align-items-center overflow-y-auto p-2 p-md-4 z-3">
-            <div
-                class="col-11 col-md-10 col-lg-8 d-flex flex-column flex-md-row shadow-lg rounded overflow-hidden bg-white my-auto">
-
-                <div class="col-12 col-md-6 p-0" style="aspect-ratio: 1/1;">
-                    <img class="img-fluid h-100" src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                        alt="Michael Jackson - Thriller" style="object-fit: cover;">
+    <header>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand brand-logo" href="inicio.html">
+                    <img src="../assets/icons/side-b-full-black.ico" height="60" alt="Side B Logo">
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="inicio.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="catalogo.html">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="carrito.html">Carrito</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-outline-light btn-sm px-4" href="sesion.html">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-light btn-sm px-4 text-dark fw-bold" href="registro.html">Registrarse</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-12 col-md-6 d-flex flex-column justify-content-between g-2 p-3 p-lg-4 bg-white">
-                    <div>
-                        <p class="fs-4 fw-bold">Thriller</p>
-                        <p class="fs-4">Artista: Michael Jackson</p>
-                        <p class="fs-4">Género: Pop</p>
-                        <p class="fs-4">Año de lanzamiento: 1982</p>
-                        <p class="fs-4">Formato: Vinilo</p>
-                        <p class="fs-4">Edición: Estándar</p>
-                        <p class="fs-4">Tamaño: 12 pulgadas</p>
-                        <p class="fs-4">Velocidad: 33 RPM</p>
-                    </div>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="precios d-flex flex-column">
-                                <span class="fs-5 text-dark">Precio unitario: $ 10</span>
-                                <span class="fs-5  text-dark">Precio total: $ 10</span>
-                            </div>
-                            <div class="cantidad d-flex flex-column">
-                                <p class="fs-5 text-dark">Cantidad: <span id="cantidad">1</span></p>
-                                <div class="d-flex justify-content-between">
-                                    <button id="boton-menos" class="btn btn-dark">-</button>
-                                    <button id="boton-mas" class="btn btn-dark">+</button>
-                                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" style="min-height: 80vh;">
+        <div class=" container d-flex flex-column justify-content-center align-items-center ">
+            <h1 class="text-center mt-5">Catálogo</h1>
 
-                            </div>
+
+            <div id="bg-borroso"
+                class="d-none bg-borroso btn position-fixed top-0 start-0 vh-100 vw-100 opacity-50 bg-dark z-2">
+            </div>
+            <div id="detalles"
+                class="d-none detalles position-fixed top-0 start-0 vh-100 vw-100 d-flex justify-content-center align-items-center overflow-y-auto p-2 p-md-4 z-3">
+                <div
+                    class="col-11 col-md-10 col-lg-8 d-flex flex-column flex-md-row shadow-lg rounded overflow-hidden bg-white my-auto">
+
+                    <div class="col-12 col-md-6 p-0" style="aspect-ratio: 1/1;">
+                        <img class="img-fluid h-100" src="../assets/images/portadas/michael-jackson-thriller.jpg"
+                            alt="Michael Jackson - Thriller" style="object-fit: cover;">
+                    </div>
+                    <div class="col-12 col-md-6 d-flex flex-column justify-content-between g-2 p-3 p-lg-4 bg-white">
+                        <div>
+                            <p class="fs-4 fw-bold">Thriller</p>
+                            <p class="fs-4">Artista: Michael Jackson</p>
+                            <p class="fs-4">Género: Pop</p>
+                            <p class="fs-4">Año de lanzamiento: 1982</p>
+                            <p class="fs-4">Formato: Vinilo</p>
+                            <p class="fs-4">Edición: Estándar</p>
+                            <p class="fs-4">Tamaño: 12 pulgadas</p>
+                            <p class="fs-4">Velocidad: 33 RPM</p>
                         </div>
-                        <button id="boton-añadir" class="btn btn-dark w-80 mt-4 py-2 fw-bold ">AÑADIR AL
-                            CARRITO</button>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="precios d-flex flex-column">
+                                    <span class="fs-5 text-dark">Precio unitario: $ 10</span>
+                                    <span class="fs-5  text-dark">Precio total: $ 10</span>
+                                </div>
+                                <div class="cantidad d-flex flex-column">
+                                    <p class="fs-5 text-dark">Cantidad: <span id="cantidad">1</span></p>
+                                    <div class="d-flex justify-content-between">
+                                        <button id="boton-menos" class="btn btn-dark">-</button>
+                                        <button id="boton-mas" class="btn btn-dark">+</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button id="boton-añadir" class="btn btn-dark w-80 mt-4 py-2 fw-bold ">AÑADIR AL
+                                CARRITO</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="discos" class="row w-100">
-        <!-- Productos se añaden aqui -->
-        <div id="disco" class="btn mt-5 col-lg-2 col-md-3 col-6">
-            <img class="img-fluid shadow-lg rounded" src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                alt="Michael Jackson - Thriller">
-            <div class="d-flex justify-content-between">
-                <div>Thriller - Michael Jackson</div>
-                <div>$10</div>
+        <div id="discos" class="row w-100">
+            <!-- Productos se añaden aqui -->
+            <div id="disco" class="btn mt-5 col-lg-2 col-md-3 col-6">
+                <img class="img-fluid shadow-lg rounded" src="../assets/images/portadas/michael-jackson-thriller.jpg"
+                    alt="Michael Jackson - Thriller">
+                <div class="d-flex justify-content-between">
+                    <div>Thriller - Michael Jackson</div>
+                    <div>$10</div>
+                </div>
             </div>
+
         </div>
 
-    </div>
-    </div>
-
-    <ul class="pagination mt-3 justify-content-center">
-        <li class="page-item"><a class="page-link z-1" href="#">Anterior</a></li>
-        <li class="page-item"><a class="page-link z-1" href="#">1</a></li>
-        <li class="page-item"><a class="page-link z-1" href="#">2</a></li>
-        <li class="page-item"><a class="page-link z-1" href="#">3</a></li>
-        <li class="page-item"><a class="page-link z-1" href="#">Siguiente</a></li>
-    </ul>
+        <ul class="pagination mt-3 mb-5 justify-content-center">
+            <li class="page-item"><a class="rounded-start btn btn-dark z-1" href="#">Anterior</a></li>
+            <li class="page-item"><a class="btn btn-dark z-1" href="#">1</a></li>
+            <li class="page-item"><a class="btn btn-dark z-1" href="#">2</a></li>
+            <li class="page-item"><a class="btn btn-dark z-1" href="#">3</a></li>
+            <li class="page-item"><a class="rounded-end btn btn-dark z-1" href="#">Siguiente</a></li>
+        </ul>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
-    
+
 
     <!-- FOOTER -->
     <footer class="site-footer py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <p class="footer-brand"><img src="../assets/icons/side-b-full-black.ico" height="40" alt="Side B Logo"></p>
+                    <p class="footer-brand"><img src="../assets/icons/side-b-full-black.ico" height="40"
+                            alt="Side B Logo"></p>
                     <p class="footer-desc">La tienda de vinilos de Costa Rica. Música auténtica, calidad real.</p>
                 </div>
                 <div class="col-6 col-lg-2">

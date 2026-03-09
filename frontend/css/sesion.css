@@ -11918,6 +11918,54 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     transform: scaleY(1.2);
   }
 }
+.form-control {
+  border-radius: 0;
+  border-color: rgba(45, 44, 45, 0.3);
+  font-family: "DM Sans", sans-serif;
+}
+.form-control:focus {
+  border-color: #2176ff;
+  box-shadow: 0 0 0 0.2rem rgba(33, 118, 255, 0.15);
+}
+
+.form-label {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #2d2c2d;
+  margin-bottom: 0.35rem;
+}
+
+.btn-primary.btn-lg, .btn-group-lg > .btn-primary.btn {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  background-color: #2d2c2d;
+  border-color: #2d2c2d;
+  border-radius: 0;
+  padding: 0.9rem 1.5rem;
+  transition: all 0.3s ease;
+}
+.btn-primary.btn-lg:hover, .btn-group-lg > .btn-primary.btn:hover {
+  background-color: #2176ff;
+  border-color: #2176ff;
+}
+
+.p-3.text-center a {
+  color: #2176ff;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-bottom: 1px solid #2176ff;
+  padding-bottom: 1px;
+}
+.p-3.text-center a:hover {
+  color: rgb(0, 90.7432432432, 237);
+}
+
 #navbar {
   background-color: rgba(45, 44, 45, 0.95) !important;
   backdrop-filter: blur(12px);
@@ -11962,15 +12010,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 .nav-link-custom:hover, .nav-link-custom.active {
   color: #2176ff !important;
-}
-
-.bg-borroso {
-  cursor: pointer;
-}
-
-#boton-mas,
-#boton-menos {
-  min-width: 2.5rem;
 }
 
 .section-tag {
@@ -12371,4 +12410,4 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   text-decoration: none;
 }
 
-/*# sourceMappingURL=catalogo.css.map */
+/*# sourceMappingURL=sesion.css.map */

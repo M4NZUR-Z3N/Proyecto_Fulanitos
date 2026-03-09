@@ -11941,4 +11941,448 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   background-color: rgba(45, 44, 45, 0.04);
 }
 
+#navbar {
+  background-color: rgba(45, 44, 45, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+#navbar.scrolled {
+  background-color: rgba(45, 44, 45, 0.98) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.brand-logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand-b {
+  color: #2176ff;
+}
+
+.brand-side {
+  color: white;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+}
+
+.nav-link-custom {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0.75rem !important;
+}
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: #2176ff !important;
+}
+
+.section-tag {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.25em;
+  font-size: 0.65rem;
+  color: #2176ff;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: #2d2c2d;
+}
+.section-title em {
+  font-style: italic;
+  color: #6d6d6d;
+}
+
+.ticker-wrap {
+  background-color: #2176ff;
+  overflow: hidden;
+  padding: 0.6rem 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 30s linear infinite;
+}
+.ticker-track span {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: #2d2c2d;
+  font-weight: 500;
+}
+
+.section-generos {
+  background-color: #ede8df;
+}
+
+.genre-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem;
+  background: white;
+  border: 1px solid rgba(45, 44, 45, 0.08);
+  border-radius: 2px;
+  text-decoration: none;
+  color: #2d2c2d;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.genre-card:hover {
+  background: #2d2c2d;
+  color: white;
+  border-color: #2d2c2d;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(45, 44, 45, 0.2);
+}
+
+.genre-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.genre-card span {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.section-destacados {
+  background-color: white;
+}
+
+.ver-todo-link {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: #2d2c2d;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid #2d2c2d;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+.ver-todo-link:hover {
+  color: #2176ff;
+  border-color: #2176ff;
+}
+
+.product-card {
+  cursor: pointer;
+}
+
+.product-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: #ede8df;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 44, 45, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-add-cart {
+  background: #2176ff;
+  color: #2d2c2d;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.btn-add-cart:hover {
+  background: #a2bade;
+  color: #2d2c2d;
+}
+
+.product-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: #2d2c2d;
+  color: white;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  z-index: 1;
+}
+.product-badge.badge-limited {
+  background: #2176ff;
+  color: #2d2c2d;
+}
+
+.product-info {
+  padding: 1rem 0;
+}
+
+.product-artist {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #6d6d6d;
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2d2c2d;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d2c2d;
+}
+
+.product-format {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  font-size: 0.6rem;
+  color: #6d6d6d;
+  text-transform: uppercase;
+}
+
+.section-why {
+  background-color: #ede8df;
+}
+
+.why-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-top: 3px solid #2d2c2d;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(45, 44, 45, 0.1);
+}
+.why-card.why-card-dark {
+  background: #2d2c2d;
+  border-top-color: #2176ff;
+}
+.why-card.why-card-dark .why-number,
+.why-card.why-card-dark .why-title,
+.why-card.why-card-dark .why-text {
+  color: white !important;
+}
+.why-card.why-card-dark .why-number {
+  color: rgba(162, 186, 222, 0.25) !important;
+}
+
+.why-number {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: #ede8df;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.why-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #2d2c2d;
+  margin-bottom: 0.75rem;
+}
+
+.why-text {
+  font-size: 0.9rem;
+  color: #6d6d6d;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+.section-cta {
+  background-color: #2d2c2d;
+  position: relative;
+  overflow: hidden;
+}
+.section-cta::before {
+  content: "B";
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 40vw;
+  color: rgba(255, 255, 255, 0.02);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  pointer-events: none;
+  font-style: italic;
+}
+.section-cta .section-tag {
+  color: #2176ff;
+}
+
+.cta-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  color: white;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-cta {
+  background-color: #2176ff;
+  color: #2d2c2d;
+  border: none;
+  padding: 0.9rem 2rem;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+.btn-cta:hover {
+  background-color: #a2bade;
+  color: #2d2c2d;
+  transform: translateY(-2px);
+}
+.btn-cta {
+  padding: 1rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.btn-cta:hover {
+  box-shadow: 0 8px 25px rgba(162, 186, 222, 0.3);
+}
+
+.site-footer {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-brand {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.footer-desc a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.footer-heading {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #2176ff;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+  font-weight: 300;
+}
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+  margin: 2rem 0 1.5rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: "DM Mono", monospace;
+}
+.footer-copy a {
+  color: #2176ff;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=carrito.css.map */
