@@ -32,7 +32,7 @@ app.get('/registro', (req, res) => {
 });
 
 // Ruta login
-app.get('/login', (req, res) => {
+app.get('/sesion', (req, res) => {
   res.render('sesion');
 });
 
@@ -49,7 +49,7 @@ app.get('/carrito', (req, res) => {
 // Ruta done
 app.get('/done', (req, res) => {
   res.render('done');
-}); http://localhost:3000
+});
 
 // Ruta landing page
 app.get('/landing', (req, res) => {

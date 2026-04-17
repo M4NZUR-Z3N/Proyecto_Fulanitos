@@ -1,55 +1,5 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iniciar sesión</title>
-
-    <link rel="stylesheet" href="../css/sesion.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <header>
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
-            <div class="container-fluid px-4">
-                <a class="navbar-brand brand-logo" href="inicio.html">
-                    <img src="../assets/icons/side-b-full-black.ico" height="60" alt="Side B Logo">
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarMain">
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="inicio.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="catalogo.html">Catálogo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="carrito.html">Carrito</a>
-                        </li>
-                        <li class="nav-item ms-lg-3">
-                            <a class="btn btn-outline-light btn-sm px-4" href="sesion.html">Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-light btn-sm px-4 text-dark fw-bold" href="registro.html">Registrarse</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!--Partial del header-->
+<%- include('./partials/header', {title: 'Iniciar sesión' , customCSS: '/css/sesion.css' }) %>
 
     <main class="mt-5" role="main" style="min-height: 80vh;">
         <div class="container">
@@ -93,49 +43,8 @@
         </div>
     </main>
 
-
-
-
-    <!-- FOOTER -->
-    <footer class="site-footer py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <p class="footer-brand"><img src="../assets/icons/side-b-full-black.ico" height="40"
-                            alt="Side B Logo"></p>
-                    <p class="footer-desc">La tienda de vinilos de Costa Rica. Música auténtica, calidad real.</p>
-                </div>
-                <div class="col-6 col-lg-2">
-                    <p class="footer-heading">Tienda</p>
-                    <ul class="footer-links">
-                        <li><a href="catalogo.html">Catálogo</a></li>
-                        <li><a href="carrito.html">Carrito</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2">
-                    <p class="footer-heading">Cuenta</p>
-                    <ul class="footer-links">
-                        <li><a href="sesion.html">Iniciar sesión</a></li>
-                        <li><a href="registro.html">Registrarse</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <p class="footer-heading">Contacto</p>
-                    <p class="footer-desc">info@sideb.com</p>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <p class="footer-copy mb-0">© 2025 Side B. Todos los derechos reservados.</p>
-                <p class="footer-copy mb-0">Desarrollado por <a href="landing-page.html">Ticaret</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-        crossorigin="anonymous"></script>
+    <!--Scripts unicos para la pagina-->
     <script src="../js/form-validation.js"></script>
-</body>
 
-</html>
+    <!--Partial del footer-->
+    <%- include('./partials/footer') %>
