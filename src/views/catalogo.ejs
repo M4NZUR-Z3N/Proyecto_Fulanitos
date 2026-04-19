@@ -3,7 +3,13 @@
 
     <main role="main" style="min-height: 80vh;">
         <div class=" container d-flex flex-column justify-content-center align-items-center ">
-            <h1 class="text-center mt-5">Catálogo</h1>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center w-100 mt-4 px-2 px-md-5">
+                <div class="invisible d-none d-md-block" style="width: 250px;"></div>
+                <h1 class="text-center m-0">Catálogo</h1>
+                <div class="mt-3 mt-md-0" style="width: 100%; max-width: 250px;">
+                    <input type="text" id="buscador-catalogo" class="form-control" placeholder="Buscar...">
+                </div>
+            </div>
 
             <!--Empieza el div de discos-->
 
@@ -24,7 +30,6 @@
                         <div>
                             <p id="detalle-titulo" class="fs-4 fw-bold">Cargando...</p>
                             <p id="detalle-artista" class="fs-4">Artista: Cargando...</p>
-                            <!-- <p id="detalle-genero" class="fs-4">Género: Pop</p> Ejemplo extra -->
                             <p id="detalle-genero" class="fs-4">Género: Cargando...</p>
                             <p id="detalle-anio" class="fs-4">Año de lanzamiento: Cargando...</p>
                             <p id="detalle-formato" class="fs-4">Formato: Cargando...</p>
@@ -58,12 +63,12 @@
 
         <!--Termina el div de discos-->
 
-        <ul class="pagination mt-3 mb-5 justify-content-center">
-            <li class="page-item"><a class="rounded-start btn btn-dark z-1" href="#">Anterior</a></li>
-            <li class="page-item"><a class="btn btn-dark z-1" href="#">1</a></li>
-            <li class="page-item"><a class="btn btn-dark z-1" href="#">2</a></li>
-            <li class="page-item"><a class="btn btn-dark z-1" href="#">3</a></li>
-            <li class="page-item"><a class="rounded-end btn btn-dark z-1" href="#">Siguiente</a></li>
+        <ul class="pagination mt-3 mb-5 justify-content-center" id="paginacion-container">
+            <li class="page-item"><a id="page-prev" class="rounded-start btn btn-dark z-1" href="#discos">Anterior</a></li>
+            <li class="page-item"><a id="page-1" class="btn btn-dark z-1 active-page" href="#discos">1</a></li>
+            <li class="page-item"><a id="page-2" class="btn btn-dark z-1" href="#discos">2</a></li>
+            <li class="page-item"><a id="page-3" class="btn btn-dark z-1" href="#discos">3</a></li>
+            <li class="page-item"><a id="page-next" class="rounded-end btn btn-dark z-1" href="#discos">Siguiente</a></li>
         </ul>
     </main>
 

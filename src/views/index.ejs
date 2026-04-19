@@ -123,85 +123,10 @@
           <a href="/catalogo" class="ver-todo-link">Ver todo →</a>
         </div>
 
-        <div class="row g-4">
-          <!-- Producto 1 -->
-          <div class="col-6 col-md-4 col-lg-3" data-animate="fade-up" data-delay="0">
-            <div class="product-card">
-              <div class="product-img-wrap">
-                <img src="../assets/images/portadas/vinilo-base.webp" alt="Álbum" class="img-fluid product-img">
-                <div class="product-overlay">
-                  <a href="/catalogo" class="btn-add-cart">+ Agregar</a>
-                </div>
-                <span class="product-badge">Nuevo</span>
-              </div>
-              <div class="product-info">
-                <p class="product-artist">Michael Jackson</p>
-                <h5 class="product-title">Thriller</h5>
-                <div class="product-footer">
-                  <span class="product-price">$10</span>
-                  <span class="product-format">33 RPM · 12"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Producto 2 -->
-          <div class="col-6 col-md-4 col-lg-3" data-animate="fade-up" data-delay="100">
-            <div class="product-card">
-              <div class="product-img-wrap">
-                <img src="../assets/images/portadas/vinilo-base.webp" alt="Álbum" class="img-fluid product-img">
-                <div class="product-overlay">
-                  <a href="/catalogo" class="btn-add-cart">+ Agregar</a>
-                </div>
-                <span class="product-badge badge-limited">Limitado</span>
-              </div>
-              <div class="product-info">
-                <p class="product-artist">Pink Floyd</p>
-                <h5 class="product-title">The Dark Side of the Moon</h5>
-                <div class="product-footer">
-                  <span class="product-price">$18</span>
-                  <span class="product-format">33 RPM · 12"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Producto 3 -->
-          <div class="col-6 col-md-4 col-lg-3" data-animate="fade-up" data-delay="200">
-            <div class="product-card">
-              <div class="product-img-wrap">
-                <img src="../assets/images/portadas/vinilo-base.webp" alt="Álbum" class="img-fluid product-img">
-                <div class="product-overlay">
-                  <a href="/catalogo" class="btn-add-cart">+ Agregar</a>
-                </div>
-              </div>
-              <div class="product-info">
-                <p class="product-artist">Fleetwood Mac</p>
-                <h5 class="product-title">Rumours</h5>
-                <div class="product-footer">
-                  <span class="product-price">$15</span>
-                  <span class="product-format">33 RPM · 12"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Producto 4 -->
-          <div class="col-6 col-md-4 col-lg-3" data-animate="fade-up" data-delay="300">
-            <div class="product-card">
-              <div class="product-img-wrap">
-                <img src="../assets/images/portadas/vinilo-base.webp" alt="Álbum" class="img-fluid product-img">
-                <div class="product-overlay">
-                  <a href="/catalogo" class="btn-add-cart">+ Agregar</a>
-                </div>
-                <span class="product-badge badge-limited">Limitado</span>
-              </div>
-              <div class="product-info">
-                <p class="product-artist">David Bowie</p>
-                <h5 class="product-title">Heroes</h5>
-                <div class="product-footer">
-                  <span class="product-price">$20</span>
-                  <span class="product-format">33 RPM · 12"</span>
-                </div>
-              </div>
-            </div>
+        <div class="row g-4 justify-content-center" id="destacados-container">
+          <div class="col-12 text-center py-5">
+            <div class="spinner-border text-dark" role="status"></div>
+            <p class="mt-2 text-dark">Cargando selección editorial...</p>
           </div>
         </div>
       </div>
@@ -262,8 +187,8 @@
   </main>
 
   <!--Scripts unicos para la pagina-->
-  <script src="/js/inicio.js"></script>
   <script src="/js/apiExterna.js"></script>
+  <script src="/js/inicio.js"></script>
 
   <!--Partial del footer-->
   <%- include('./partials/footer') %>
