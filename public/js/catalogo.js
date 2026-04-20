@@ -10,6 +10,7 @@ const discos = document.getElementById('discos');
 
 let cantidad = 1; //Cantidad de producto seleccionada que despues se añadirá al carrito cuando sea funcional
 let precioActualUnitario = 0; // Precio del producto actualmente seleccionado
+let productoActualId = null; // ID real en DB / Discogs de lo que seleccionaste
 const spanPrecioTotal = document.getElementById('detalle-precio-total');
 
 //Funciones
@@ -57,9 +58,32 @@ function disminuirCantidad() {
     }
 }
 
-function añadirAlCarrito() {
-    const precioTotal = cantidad * precioActualUnitario;
-    console.log(`Se guardan en el carrito ${cantidad} cantidad de discos con precio total de $${precioTotal.toFixed(2)}`);
+async function añadirAlCarrito() {
+    const token = localStorage.getItem('token');
+    if (!token || !window.enSesion) {
+        Swal.fire({icon: 'warning', title: 'Inicia sesión', text: 'Debes iniciar sesión para añadir productos al carrito'});
+        return;
+    }
+
+    try {
+        const res = await fetch('/api/carrito/agregar', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` 
+            },
+            body: JSON.stringify({ productoId: productoActualId, cantidad: cantidad })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+            Swal.fire({icon: 'success', title: '¡Añadido!', text: 'El producto se guardó en tu carrito.', timer: 2000, showConfirmButton: false});
+        } else {
+            Swal.fire({icon: 'error', title: 'Error', text: data.mensaje || 'No se pudo añadir al carrito'});
+        }
+    } catch (err) {
+        Swal.fire({icon: 'error', title: 'Problema de red', text: 'El servidor no responde.'});
+    }
 }
 
 // Variable global para la paginación actual
@@ -69,6 +93,7 @@ let paginaActual = 1;
 function renderizarDisco(data, fromSearch = false) {
     if (!data || data.message?.includes('not found')) return null;
 
+    let id = data.id ? data.id.toString() : Date.now().toString();
     let artista = "Artista Desconocido";
     let titulo = "Título Desconocido";
     let cover = "../assets/images/portadas/vinilo-base.webp";
@@ -124,6 +149,7 @@ function renderizarDisco(data, fromSearch = false) {
     producto.addEventListener('click', function () {
         cantidad = 1;
         spanCantidad.textContent = cantidad;
+        productoActualId = id;
 
         // Parseamos el precio a número
         precioActualUnitario = parseFloat(precio) || 10.00;

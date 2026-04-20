@@ -33,9 +33,11 @@ conectarDB();
 
 //Importamos las rutas
 const usuariosRoutes = require('./routes/usuariosRoutes');
+const carritoRoutes = require('./routes/carritoRoutes');
 
 //Rutas
 app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/carrito', carritoRoutes);
 
 // Ruta principal
 app.get('/', (req, res) => {

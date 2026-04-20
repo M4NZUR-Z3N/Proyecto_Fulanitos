@@ -8,68 +8,8 @@
 
                 <div class="vinilos-comprar d-flex flex-column flex-lg-row col-12 justify-content-center">
                     <!--Inicia-->
-                    <div class="col-12 col-lg-8 overflow-y-auto pe-2 mb-4" style="max-height: 70vh;">
-                        <div class="vinilo d-flex col-12 flex-md-row mb-3 border border-dark overflow-hidden z-3">
-
-                            <img class="col-4 d-none d-md-block img-fluid"
-                                src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                                alt="Michael Jackson - Thriller">
-
-                            <div class="col-12 col-md-8 d-flex flex-column justify-content-between p-3 bg-white">
-
-                                <p class=" fs-5 mb-0 fw-bold">Thriller</p>
-                                <p class="fs-5 mb-0">Artista: Michael Jackson</p>
-                                <p class="fs-5 mb-0">Edición: Estándar</p>
-                                <p class="fs-5 mb-0">Precio: $10</p>
-
-                            </div>
-                        </div>
-                        <div class="vinilo d-flex col-12 flex-md-row mb-3 border border-dark overflow-hidden z-3">
-
-                            <img class="col-4 d-none d-md-block img-fluid"
-                                src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                                alt="Michael Jackson - Thriller">
-
-                            <div class="col-12 col-md-8 d-flex flex-column justify-content-between p-3 bg-white">
-
-                                <p class=" fs-5 mb-0 fw-bold">Thriller</p>
-                                <p class="fs-5 mb-0">Artista: Michael Jackson</p>
-                                <p class="fs-5 mb-0">Edición: Estándar</p>
-                                <p class="fs-5 mb-0">Precio: $10</p>
-
-                            </div>
-                        </div>
-                        <div class="vinilo d-flex col-12 flex-md-row mb-3 border border-dark overflow-hidden z-3">
-
-                            <img class="col-4 d-none d-md-block img-fluid"
-                                src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                                alt="Michael Jackson - Thriller">
-
-                            <div class="col-12 col-md-8 d-flex flex-column justify-content-between p-3 bg-white">
-
-                                <p class=" fs-5 mb-0 fw-bold">Thriller</p>
-                                <p class="fs-5 mb-0">Artista: Michael Jackson</p>
-                                <p class="fs-5 mb-0">Edición: Estándar</p>
-                                <p class="fs-5 mb-0">Precio: $10</p>
-
-                            </div>
-                        </div>
-                        <div class="vinilo d-flex col-12 flex-md-row mb-3 border border-dark overflow-hidden z-3">
-
-                            <img class="col-4 d-none d-md-block img-fluid"
-                                src="../assets/images/portadas/michael-jackson-thriller.jpg"
-                                alt="Michael Jackson - Thriller">
-
-                            <div class="col-12 col-md-8 d-flex flex-column justify-content-between p-3 bg-white">
-
-                                <p class=" fs-5 mb-0 fw-bold">Thriller</p>
-                                <p class="fs-5 mb-0">Artista: Michael Jackson</p>
-                                <p class="fs-5 mb-0">Edición: Estándar</p>
-                                <p class="fs-5 mb-0">Precio: $10</p>
-
-                            </div>
-                        </div>
-
+                    <div id="contenedor-carrito" class="col-12 col-lg-8 overflow-y-auto pe-2 mb-4" style="max-height: 70vh;">
+                        <p class="text-center mt-5">Cargando carrito...</p>
                     </div>
                     <!--Finaliza-->
 
@@ -78,9 +18,9 @@
 
                         <h4 class="card-title">Resumen del pedido</h4>
                         <div class="w-100 mt-3 d-flex flex-column">
-                            <p class="fs-5 mb-0">Subtotal: $10</p>
-                            <p class="fs-5 mb-0">Envio: $10</p>
-                            <p class="fs-5 mb-0">Total: $10</p>
+                            <p class="fs-5 mb-0" id="cart-subtotal">Subtotal: $0.00</p>
+                            <p class="fs-5 mb-0" id="cart-envio">Envío: $5.00</p>
+                            <p class="fs-5 mb-0 fw-bold" id="cart-total">Total: $0.00</p>
                         </div>
 
                         <div class="metodos-pago mt-3 w-100">
@@ -114,6 +54,8 @@
     </main>
 
     <!--Scripts unicos para la pagina-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/apiExterna.js"></script>
     <script src="../js/carrito.js"></script>
 
     <!--Partial del footer-->

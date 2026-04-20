@@ -6,7 +6,8 @@ const usuarioSchema = new mongoose.Schema({
     email: String,
     telefono: String,
     password: String,
-    fechaRegistro: { type: Date, default: Date.now }
+    fechaRegistro: { type: Date, default: Date.now },
+    carrito: [{ productoId: String, cantidad: Number }]
 });
 
 module.exports = mongoose.model('Usuarios', usuarioSchema);
