@@ -50,6 +50,7 @@ const registrar = async (req, res) => {
     });
 
     await nuevoUsuario.save();
+    console.log(`✅ Nuevo usuario registrado en DB: ${email}`);
 
     // No devolver el password en la respuesta
     const { password: _, ...usuarioPublico } = nuevoUsuario.toObject();

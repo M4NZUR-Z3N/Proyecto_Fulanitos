@@ -1,6 +1,5 @@
-// Variable global simulando la sesión del usuario.
-// Se puede cambiar a "true" o "false" para probar la interacción.
-window.enSesion = false;
+// Variable global basada en el navegador (Local Storage) para mantener la sesión viva entre páginas.
+window.enSesion = localStorage.getItem('enSesion') === 'true';
 
 // Inyectar CSS dinámico inmediatamente para evita el parpadeo de botones (FOUC)
 const dynamicStyle = document.createElement('style');
@@ -42,4 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    // 2. Lógica para Cerrar sesión
+    // Buscamos los botones en el Header y Footer
+    const btnCerrarSesionNav = document.getElementById('nav-item-cerrar-sesion');
+    const btnCerrarSesionFooter = document.getElementById('footer-item-cerrar-sesion');
+
+    const cerrarSesion = (e) => {
+        e.preventDefault(); // Evitamos que siga el link de golpe
+        
+        // Limpiamos los datos locales
+        localStorage.removeItem('enSesion');
+        localStorage.removeItem('token');
+        
+        // Volvemos a inicio
+        window.location.href = '/';
+    };
+
+    if (btnCerrarSesionNav) btnCerrarSesionNav.addEventListener('click', cerrarSesion);
+    if (btnCerrarSesionFooter) btnCerrarSesionFooter.addEventListener('click', cerrarSesion);
 });

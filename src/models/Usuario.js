@@ -6,7 +6,7 @@ const usuarioSchema = new mongoose.Schema({
     email: String,
     telefono: String,
     password: String,
-    confirmPassword: String
+    fechaRegistro: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Usuarios', usuarioSchema);

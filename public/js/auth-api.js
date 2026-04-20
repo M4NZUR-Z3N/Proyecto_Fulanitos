@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const formRegistro = document.getElementById('formRegistro');
     if (formRegistro) {
         formRegistro.addEventListener('submit', async (e) => {
             e.preventDefault(); // Evita la recarga de página y el action="GET/POST" por defecto
-            
+
             // Validaciones por defecto manejadas por Bootstrap/form-validation.js
-            if(!formRegistro.checkValidity()) return;
+            if (!formRegistro.checkValidity()) return;
 
             const nombre = document.getElementById('firstName').value;
             const apellido = document.getElementById('lastName').value;
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: '¡Registro Exitoso!',
                         text: data.mensaje || 'Serás redirigido en 5 segundos...',
                         showConfirmButton: true,
-                        confirmButtonText: 'Volver a inicio',
+                        confirmButtonText: 'Iniciar sesión',
                         timer: 5000,
                         timerProgressBar: true
                     }).then(() => {
-                        window.location.href = '/';
+                        window.location.href = '/sesion';
                     });
                 } else {
                     Swal.fire({
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formSesion.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            if(!formSesion.checkValidity()) return;
+            if (!formSesion.checkValidity()) return;
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
 
                 if (response.ok) {
+                    localStorage.setItem('enSesion', 'true');
+                    localStorage.setItem('token', data.token);
+                    
                     Swal.fire({
                         icon: 'success',
                         title: '¡Bienvenido!',

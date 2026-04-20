@@ -8,16 +8,17 @@
       form.addEventListener('submit', function (event) {
         const password = document.getElementById('password')
         const confirmPassword = document.getElementById('confirmPassword')
-        const feedback = confirmPassword.nextElementSibling
+        if (confirmPassword) {
+          const feedback = confirmPassword.nextElementSibling
+          // Verifica si las contraseñas coinciden
+          if (password.value !== confirmPassword.value) {
 
-        // Verifica si las contraseñas coinciden
-        if (password.value !== confirmPassword.value) {
-
-          confirmPassword.setCustomValidity('Las contraseñas no coinciden')
-          feedback.textContent = 'Las contraseñas no coinciden'
-        } else {
-          confirmPassword.setCustomValidity('')
-          feedback.textContent = 'Favor ingresar una contraseña.'
+            confirmPassword.setCustomValidity('Las contraseñas no coinciden')
+            feedback.textContent = 'Las contraseñas no coinciden'
+          } else {
+            confirmPassword.setCustomValidity('')
+            feedback.textContent = 'Favor ingresar una contraseña.'
+          }
         }
 
         // Si el formulario no es válido según las reglas de Bootstrap
