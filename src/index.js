@@ -34,10 +34,12 @@ conectarDB();
 //Importamos las rutas
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const carritoRoutes = require('./routes/carritoRoutes');
+const ordenesRoutes = require('./routes/ordenesRoutes');
 
 //Rutas
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/carrito', carritoRoutes);
+app.use('/api/ordenes', ordenesRoutes);
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -62,6 +64,11 @@ app.get('/catalogo', (req, res) => {
 // Ruta carrito
 app.get('/carrito', (req, res) => {
   res.render('carrito');
+});
+
+// Ruta perfil
+app.get('/perfil', (req, res) => {
+  res.render('perfil');
 });
 
 // Ruta done

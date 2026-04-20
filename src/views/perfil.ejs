@@ -1,0 +1,37 @@
+<%- include('./partials/header', {title: 'Mi Perfil' , customCSS: '/css/inicio.css' }) %>
+
+<main class="container my-5" style="min-height: 80vh;">
+    <h1 class="mb-4 display-5 fw-bold mt-5">Mi Perfil</h1>
+    
+    <div class="row g-4 d-flex">
+        <!-- Bloque Izquierdo: Información del Usuario -->
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm border-dark h-100 bg-white">
+                <h3 class="border-bottom pb-2 mb-3">Datos Personales</h3>
+                <div id="perfil-info" class="text-center mt-3">
+                    <div class="spinner-border text-dark" role="status"></div>
+                    <p>Cargando información...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloque Derecho: Órdenes del Usuario -->
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm border-dark h-100 bg-white">
+                <h3 class="border-bottom pb-2 mb-3">Mis Pedidos</h3>
+                <div id="perfil-ordenes" class="mt-3">
+                    <!-- Aquí se inyectan dinámicamente las órdenes -->
+                    <div class="text-center">
+                        <div class="spinner-border text-dark" role="status"></div>
+                        <p>Cargando pedidos...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/perfil.js"></script>
+
+<%- include('./partials/footer') %>

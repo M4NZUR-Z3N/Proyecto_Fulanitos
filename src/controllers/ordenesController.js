@@ -1,92 +1,32 @@
-// ============================================================
-//  ordenesController.js — Crear y consultar órdenes de compra
-// ============================================================
+const Orden = require('../models/orden');
+const Usuario = require('../models/usuario');
 
-const db = require('../config/db'); // aqui se tiene que poner la base de datos 
-
-// POST /api/ordenes  (usuario autenticado)
-const crearOrden = (req, res) => {
+const crearOrden = async (req, res) => {
   try {
-    const { items, metodoPago } = req.body;
-   
+    const { items, metodoPago, subtotal, envio, total } = req.body;
 
-    if (!items || !Array.isArray(items) || items.length === 0) {
-      return res.status(400).json({ ok: false, mensaje: 'La orden debe tener al menos un producto.' });
+    if (!items || items.length === 0) {
+      return res.status(400).json({ ok: false, mensaje: 'El carrito está vacío.' });
     }
 
-    if (!metodoPago) {
-      return res.status(400).json({ ok: false, mensaje: 'Debe especificar un método de pago.' });
-    }
-
-    const metodosValidos = ['tarjeta', 'paypal'];
-    if (!metodosValidos.includes(metodoPago)) {
-      return res.status(400).json({
-        ok: false,
-        mensaje: `Método de pago inválido. Use: ${metodosValidos.join(', ')}.`,
-      });
-    }
-
-    // Construye los items validando stock
-    const itemsOrden = [];
-    const erroresStock = [];
-
-    for (const item of items) {
-      const producto = db.productos.find((p) => p.id === Number(item.productoId));
-
-      if (!producto) {
-        erroresStock.push(`Producto con ID ${item.productoId} no existe.`);
-        continue;
-      }
-
-      if (producto.stock < item.cantidad) {
-        erroresStock.push(
-          `Stock insuficiente para "${producto.titulo}". Disponible: ${producto.stock}, solicitado: ${item.cantidad}.`
-        );
-        continue;
-      }
-
-      itemsOrden.push({
-        productoId: producto.id,
-        titulo: producto.titulo,
-        artista: producto.artista,
-        precioUnitario: producto.precio,
-        cantidad: Number(item.cantidad),
-        subtotal: producto.precio * Number(item.cantidad),
-      });
-    }
-
-    if (erroresStock.length > 0) {
-      return res.status(400).json({ ok: false, mensaje: 'Errores en la orden.', errores: erroresStock });
-    }
-
-    // Calcula totales
-    const subtotal = itemsOrden.reduce((acc, i) => acc + i.subtotal, 0);
-    const envio = 5; // tarifa fija
-    const total = subtotal + envio;
-
-    const nuevaOrden = {
-      id: db.getNextOrdenId(),
+    const nuevaOrden = new Orden({
       usuarioId: req.usuario.id,
-      items: itemsOrden,
+      items,
       metodoPago,
       subtotal,
       envio,
       total,
-      estado: 'pendiente', // pendiente | procesando | enviado | entregado | cancelado
-      fechaCreacion: new Date().toISOString(),
-    };
-
-    // Descuenta stock
-    itemsOrden.forEach((item) => {
-      const prod = db.productos.find((p) => p.id === item.productoId);
-      prod.stock -= item.cantidad;
+      estado: 'completado'
     });
 
-    db.ordenes.push(nuevaOrden);
+    await nuevaOrden.save();
+
+    // Vaciamos el carrito del usuario tras realizar el pago
+    await Usuario.findByIdAndUpdate(req.usuario.id, { $set: { carrito: [] } });
 
     res.status(201).json({
       ok: true,
-      mensaje: '¡Orden creada exitosamente!',
+      mensaje: '¡Pago exitoso y orden registrada!',
       orden: nuevaOrden,
     });
   } catch (error) {
@@ -94,10 +34,9 @@ const crearOrden = (req, res) => {
   }
 };
 
-// GET /api/ordenes/mis-ordenes  (usuario autenticado — solo sus órdenes)
-const obtenerMisOrdenes = (req, res) => {
+const obtenerMisOrdenes = async (req, res) => {
   try {
-    const misOrdenes = db.ordenes.filter((o) => o.usuarioId === req.usuario.id);
+    const misOrdenes = await Orden.find({ usuarioId: req.usuario.id }).sort({ fechaCreacion: -1 });
 
     res.status(200).json({
       ok: true,
@@ -109,17 +48,16 @@ const obtenerMisOrdenes = (req, res) => {
   }
 };
 
-// GET /api/ordenes/:id  (usuario autenticado)
-const obtenerOrdenPorId = (req, res) => {
+const obtenerOrdenPorId = async (req, res) => {
   try {
-    const orden = db.ordenes.find((o) => o.id === Number(req.params.id));
+    const orden = await Orden.findById(req.params.id);
 
     if (!orden) {
       return res.status(404).json({ ok: false, mensaje: 'Orden no encontrada.' });
     }
 
-    // El usuario solo puede ver sus propias órdenes (admin puede ver todas)
-    if (orden.usuarioId !== req.usuario.id && req.usuario.rol !== 'admin') {
+    // Seguridad: el usuario solo puede ver sus órdenes (a menos que sea admin)
+    if (orden.usuarioId.toString() !== req.usuario.id && req.usuario.rol !== 'admin') {
       return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para ver esta orden.' });
     }
 
@@ -129,24 +67,23 @@ const obtenerOrdenPorId = (req, res) => {
   }
 };
 
-// GET /api/ordenes  (solo admin — todas las órdenes)
-const obtenerTodasLasOrdenes = (req, res) => {
+const obtenerTodasLasOrdenes = async (req, res) => {
   try {
+    const ordenes = await Orden.find().sort({ fechaCreacion: -1 });
     res.status(200).json({
       ok: true,
-      total: db.ordenes.length,
-      ordenes: db.ordenes,
+      total: ordenes.length,
+      ordenes,
     });
   } catch (error) {
     res.status(500).json({ ok: false, mensaje: 'Error al obtener las órdenes.', error: error.message });
   }
 };
 
-// PATCH /api/ordenes/:id/estado  (solo admin)
-const actualizarEstadoOrden = (req, res) => {
+const actualizarEstadoOrden = async (req, res) => {
   try {
     const { estado } = req.body;
-    const estadosValidos = ['pendiente', 'procesando', 'enviado', 'entregado', 'cancelado'];
+    const estadosValidos = ['pendiente', 'procesando', 'enviado', 'entregado', 'cancelado', 'completado'];
 
     if (!estadosValidos.includes(estado)) {
       return res.status(400).json({
@@ -155,12 +92,15 @@ const actualizarEstadoOrden = (req, res) => {
       });
     }
 
-    const orden = db.ordenes.find((o) => o.id === Number(req.params.id));
+    const orden = await Orden.findByIdAndUpdate(
+      req.params.id,
+      { estado },
+      { new: true }
+    );
+
     if (!orden) {
       return res.status(404).json({ ok: false, mensaje: 'Orden no encontrada.' });
     }
-
-    orden.estado = estado;
 
     res.status(200).json({ ok: true, mensaje: 'Estado actualizado.', orden });
   } catch (error) {
