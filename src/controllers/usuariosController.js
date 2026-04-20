@@ -5,6 +5,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db'); // aqui se tiene que poner la base de datos 
+const Usuario = require('../models/usuario');
 
 // POST /api/usuarios/registro
 const registrar = async (req, res) => {
@@ -31,7 +32,7 @@ const registrar = async (req, res) => {
     }
 
     // Verifica si el email ya existe
-    const existe = db.usuarios.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    const existe = await Usuario.findOne({ email: email.toLowerCase() });
     if (existe) {
       return res.status(409).json({ ok: false, mensaje: 'El correo electrónico ya está registrado.' });
     }
@@ -39,21 +40,19 @@ const registrar = async (req, res) => {
     // Hashea la contraseña
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const nuevoUsuario = {
-      id: db.getNextUsuarioId(),
+    const nuevoUsuario = new Usuario({
       nombre,
       apellido,
       email: email.toLowerCase(),
       password: passwordHash,
       telefono: telefono || null,
-      rol: 'cliente',
-      fechaRegistro: new Date().toISOString(),
-    };
+      fechaRegistro: new Date().toISOString()
+    });
 
-    db.usuarios.push(nuevoUsuario);
+    await nuevoUsuario.save();
 
     // No devolver el password en la respuesta
-    const { password: _, ...usuarioPublico } = nuevoUsuario;
+    const { password: _, ...usuarioPublico } = nuevoUsuario.toObject();
 
     res.status(201).json({
       ok: true,
@@ -75,7 +74,7 @@ const login = async (req, res) => {
     }
 
     // Busca el usuario
-    const usuario = db.usuarios.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    const usuario = await Usuario.findOne({ email: email.toLowerCase() });
     if (!usuario) {
       return res.status(401).json({ ok: false, mensaje: 'Credenciales incorrectas.' });
     }
@@ -93,7 +92,7 @@ const login = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     );
 
-    const { password: _, ...usuarioPublico } = usuario;
+    const { password: _, ...usuarioPublico } = usuario.toObject();
 
     res.status(200).json({
       ok: true,
@@ -107,15 +106,15 @@ const login = async (req, res) => {
 };
 
 // GET /api/usuarios/perfil  (requiere token)
-const obtenerPerfil = (req, res) => {
+const obtenerPerfil = async (req, res) => {
   try {
-    const usuario = db.usuarios.find((u) => u.id === req.usuario.id);
+    const usuario = await Usuario.findById(req.usuario.id);
 
     if (!usuario) {
       return res.status(404).json({ ok: false, mensaje: 'Usuario no encontrado.' });
     }
 
-    const { password: _, ...usuarioPublico } = usuario;
+    const { password: _, ...usuarioPublico } = usuario.toObject();
 
     res.status(200).json({ ok: true, usuario: usuarioPublico });
   } catch (error) {
@@ -124,9 +123,13 @@ const obtenerPerfil = (req, res) => {
 };
 
 // GET /api/usuarios  (solo admin)
-const obtenerUsuarios = (req, res) => {
+const obtenerUsuarios = async (req, res) => {
   try {
-    const lista = db.usuarios.map(({ password: _, ...u }) => u);
+    const usuarios = await Usuario.find();
+    const lista = usuarios.map(u => {
+      const { password: _, ...resto } = u.toObject();
+      return resto;
+    });
     res.status(200).json({ ok: true, total: lista.length, usuarios: lista });
   } catch (error) {
     res.status(500).json({ ok: false, mensaje: 'Error al obtener usuarios.', error: error.message });

@@ -1,6 +1,6 @@
 // Variable global simulando la sesión del usuario.
 // Se puede cambiar a "true" o "false" para probar la interacción.
-window.enSesion = true;
+window.enSesion = false;
 
 // Inyectar CSS dinámico inmediatamente para evita el parpadeo de botones (FOUC)
 const dynamicStyle = document.createElement('style');

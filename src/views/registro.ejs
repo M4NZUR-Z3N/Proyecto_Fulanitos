@@ -9,7 +9,7 @@
             <div class="row g-5 mt-2 mb-5">
                 <div class="col-md-7 col-lg-12">
                     <h4 class="mb-3">Información personal</h4>
-                    <form class="needs-validation" action="done.html" method="get" novalidate>
+                    <form id="formRegistro" class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">Nombre</label>
@@ -67,7 +67,7 @@
                     </form>
                     <div class="p-3 text-center">
                         <p class="text-center">¿Ya tiene una cuenta?</p>
-                        <a href="sesion.html">Iniciar sesión</a>
+                        <a href="/sesion">Iniciar sesión</a>
                     </div>
                 </div>
             </div>
@@ -76,6 +76,8 @@
 
     <!--Scripts unicos para la pagina-->
     <script src="../js/form-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/auth-api.js"></script>
 
     <!--Partial del footer-->
     <%- include('./partials/footer') %>
