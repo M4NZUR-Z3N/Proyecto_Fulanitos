@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil — Side B</title>
+
+    <link rel="icon" type="image/icon" href="/assets/icons/side-b.ico">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand brand-logo" href="/pages/inicio.html">
+                    <img src="/assets/icons/side-b.ico" height="60" alt="Side B Logo">
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="/pages/inicio.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="/pages/catalogo.html">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="/pages/carrito.html">Carrito</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <!-- Cuando hay sesión activa, se reemplaza por el nombre del usuario -->
+                            <a class="nav-link nav-link-custom active" href="/pages/perfil.html">Mi perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-sm px-4" href="/pages/sesion.html">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <!-- HEADER DEL PERFIL -->
+        <section class="perfil-header">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-4">
+
+                    <!-- Avatar con inicial -->
+                    <div class="perfil-avatar">
+                        <span>P</span>
+                    </div>
+
+                    <!-- Info principal -->
+                    <div>
+                        <p class="perfil-tag">PERFIL DE USUARIO</p>
+                        <h1 class="perfil-nombre">
+                            Paz <em>Naranjo</em>
+                        </h1>
+                        <p class="perfil-email">paz@sideb.com</p>
+                        <span class="perfil-badge">Cliente</span>
+
+                        <!-- Estadísticas -->
+                        <div class="perfil-stats">
+                            <div class="stat-item">
+                                <span class="stat-numero">3</span>
+                                <span class="stat-label">Órdenes</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-numero">5</span>
+                                <span class="stat-label">Vinilos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-numero">$68</span>
+                                <span class="stat-label">Total gastado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="ms-md-auto d-flex flex-column gap-2 align-self-md-start mt-md-2">
+                        <button class="btn-editar">Editar perfil</button>
+                        <a href="/pages/sesion.html" class="btn-cerrar-sesion">Cerrar sesión</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="perfil-contenido">
+            <div class="container">
+                <div class="row g-4">
+
+                    <!-- COLUMNA IZQUIERDA -->
+                    <div class="col-12 col-lg-4 d-flex flex-column gap-4">
+
+                        <!-- Información personal -->
+                        <div class="perfil-card" data-animate="fade-up">
+                            <span class="card-tag">Datos personales</span>
+                            <h2 class="card-titulo">Mi información</h2>
+
+                            <div class="info-campo">
+                                <span class="campo-label">Nombre completo</span>
+                                <span class="campo-valor">Paz Naranjo Bonilla</span>
+                            </div>
+                            <div class="info-campo">
+                                <span class="campo-label">Correo electrónico</span>
+                                <span class="campo-valor">paz@sideb.com</span>
+                            </div>
+                            <div class="info-campo">
+                                <span class="campo-label">Teléfono</span>
+                                <span class="campo-valor">8888-1234</span>
+                            </div>
+                            <div class="info-campo">
+                                <span class="campo-label">Miembro desde</span>
+                                <span class="campo-valor">Enero 2025</span>
+                            </div>
+                            <div class="info-campo">
+                                <span class="campo-label">Rol</span>
+                                <span class="campo-valor">Cliente</span>
+                            </div>
+                        </div>
+
+                        <!-- Vinilos favoritos -->
+                        <div class="perfil-card" data-animate="fade-up" data-delay="100">
+                            <span class="card-tag">Guardados</span>
+                            <h2 class="card-titulo">Mis favoritos</h2>
+
+                            <a href="/pages/catalogo.html" class="vinilo-fav">
+                                <div class="vinilo-fav-placeholder">🎵</div>
+                                <div>
+                                    <p class="vinilo-fav-titulo">Thriller</p>
+                                    <p class="vinilo-fav-artista">Michael Jackson</p>
+                                </div>
+                                <span class="vinilo-fav-precio">$10</span>
+                            </a>
+
+                            <a href="/pages/catalogo.html" class="vinilo-fav">
+                                <div class="vinilo-fav-placeholder">🎵</div>
+                                <div>
+                                    <p class="vinilo-fav-titulo">The Dark Side of the Moon</p>
+                                    <p class="vinilo-fav-artista">Pink Floyd</p>
+                                </div>
+                                <span class="vinilo-fav-precio">$18</span>
+                            </a>
+
+                            <a href="/pages/catalogo.html" class="vinilo-fav">
+                                <div class="vinilo-fav-placeholder">🎵</div>
+                                <div>
+                                    <p class="vinilo-fav-titulo">Kind of Blue</p>
+                                    <p class="vinilo-fav-artista">Miles Davis</p>
+                                </div>
+                                <span class="vinilo-fav-precio">$22</span>
+                            </a>
+
+                            <a href="/pages/catalogo.html" class="vinilo-fav">
+                                <div class="vinilo-fav-placeholder">🎵</div>
+                                <div>
+                                    <p class="vinilo-fav-titulo">Rumours</p>
+                                    <p class="vinilo-fav-artista">Fleetwood Mac</p>
+                                </div>
+                                <span class="vinilo-fav-precio">$15</span>
+                            </a>
+
+                            <a href="/pages/catalogo.html" class="vinilo-fav">
+                                <div class="vinilo-fav-placeholder">🎵</div>
+                                <div>
+                                    <p class="vinilo-fav-titulo">Heroes</p>
+                                    <p class="vinilo-fav-artista">David Bowie</p>
+                                </div>
+                                <span class="vinilo-fav-precio">$20</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- COLUMNA DERECHA: Historial de órdenes -->
+                    <div class="col-12 col-lg-8">
+                        <div class="perfil-card" data-animate="fade-up" data-delay="150">
+                            <span class="card-tag">Compras</span>
+                            <h2 class="card-titulo">Historial de órdenes</h2>
+
+                            <!-- Orden 1 -->
+                            <div class="orden-item">
+                                <div>
+                                    <p class="orden-id">#ORD-001</p>
+                                    <p class="orden-fecha">12 de marzo, 2025</p>
+                                    <p class="orden-productos">Thriller × 2 · Rumours × 1</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-end gap-2">
+                                    <span class="orden-estado estado-entregado">Entregado</span>
+                                    <span class="orden-total">$35</span>
+                                </div>
+                            </div>
+
+                            <!-- Orden 2 -->
+                            <div class="orden-item">
+                                <div>
+                                    <p class="orden-id">#ORD-002</p>
+                                    <p class="orden-fecha">28 de marzo, 2025</p>
+                                    <p class="orden-productos">Kind of Blue × 1</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-end gap-2">
+                                    <span class="orden-estado estado-enviado">Enviado</span>
+                                    <span class="orden-total">$27</span>
+                                </div>
+                            </div>
+
+                            <!-- Orden 3 -->
+                            <div class="orden-item">
+                                <div>
+                                    <p class="orden-id">#ORD-003</p>
+                                    <p class="orden-fecha">10 de abril, 2025</p>
+                                    <p class="orden-productos">Heroes × 1</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-end gap-2">
+                                    <span class="orden-estado estado-procesando">Procesando</span>
+                                    <span class="orden-total">$25</span>
+                                </div>
+                            </div>
+
+                            <!-- Estado vacío (comentado — usar cuando no hay órdenes) -->
+                            <!--
+                            <div class="text-center py-5">
+                                <p style="font-size: 2.5rem;">🎵</p>
+                                <p class="section-tag text-center">Aún no tenés compras</p>
+                                <a href="catalogo.html" class="btn btn-dark mt-2 px-4">Ver catálogo</a>
+                            </div>
+                            -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <p class="footer-brand"><img src="/assets/icons/side-b-full-black.ico" height="40"
+                            alt="Side B Logo"></p>
+                    <p class="footer-desc">La tienda de vinilos de Costa Rica. Música auténtica, calidad real.</p>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <p class="footer-heading">Tienda</p>
+                    <ul class="footer-links">
+                        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+                        <li><a href="/pages/carrito.html">Carrito</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <p class="footer-heading">Cuenta</p>
+                    <ul class="footer-links">
+                        <li><a href="/pages/perfil.html">Mi perfil</a></li>
+                        <li><a href="/pages/sesion.html">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <p class="footer-heading">Contacto</p>
+                    <p class="footer-desc">info@sideb.com</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <p class="footer-copy mb-0">© 2025 Side B. Todos los derechos reservados.</p>
+                <p class="footer-copy mb-0">Desarrollado por <a href="/pages/landing-page.html">Ticaret</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="/frontend/js/inicio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+// ============================================
+//   SIDE B — perfil.scss
+//   Página de perfil de usuario
+// ============================================
+
+// 1. Variables propias (antes de Bootstrap)
+@import 'variables';
+
+// 2. Bootstrap completo
+@import 'bootstrap/scss/bootstrap';
+
+// 3. Parciales propios
+@import 'mixins';
+@import 'base';
+@import 'navbar';
+@import 'sections';
+@import 'forms-styles';
+
+// ── Layout general ──────────────────────────
+.perfil-wrapper {
+  min-height: 100vh;
+  background-color: $light-bg;
+  padding-top: 100px; // compensa navbar fixed
+}
+
+// ── Header del perfil ───────────────────────
+.perfil-header {
+  background-color: $dark;
+  padding: 3rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+
+  // "B" decorativa de fondo (igual al CTA de inicio)
+  &::before {
+    content: 'B';
+    @include font-display(35vw, 900);
+    color: rgba(255, 255, 255, 0.03);
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+    font-style: italic;
+  }
+}
+
+.perfil-tag {
+  @include font-mono(0.65rem, 0.25em);
+  color: $blue;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.perfil-nombre {
+  @include font-display(clamp(2rem, 5vw, 3.5rem), 700);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+
+  em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.45);
+  }
+}
+
+.perfil-email {
+  @include font-mono(0.8rem, 0.05em);
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0;
+}
+
+// Avatar
+.perfil-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: $blue;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  span {
+    @include font-display(2.8rem, 900);
+    color: white;
+    line-height: 1;
+  }
+}
+
+// Badge de rol
+.perfil-badge {
+  display: inline-block;
+  @include font-mono(0.6rem, 0.2em);
+  text-transform: uppercase;
+  background-color: $blue;
+  color: $dark;
+  padding: 0.2rem 0.7rem;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+// ── Estadísticas rápidas ─────────────────────
+.perfil-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .stat-numero {
+    @include font-display(1.8rem, 700);
+    color: white;
+    line-height: 1;
+  }
+
+  .stat-label {
+    @include font-mono(0.6rem, 0.15em);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+// ── Tarjetas de contenido ────────────────────
+.perfil-card {
+  background: white;
+  border: 1px solid rgba($dark, 0.1);
+  padding: 2rem;
+  height: 100%;
+
+  .card-tag {
+    @include font-mono(0.6rem, 0.2em);
+    text-transform: uppercase;
+    color: $blue;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .card-titulo {
+    @include font-display(1.3rem, 700);
+    color: $dark;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba($dark, 0.08);
+    padding-bottom: 1rem;
+  }
+}
+
+// ── Campos de información ─────────────────────
+.info-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba($dark, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .campo-label {
+    @include font-mono(0.6rem, 0.15em);
+    text-transform: uppercase;
+    color: $grey;
+  }
+
+  .campo-valor {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $dark;
+    font-weight: 400;
+  }
+}
+
+// ── Historial de órdenes ─────────────────────
+.orden-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba($dark, 0.07);
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.orden-id {
+  @include font-mono(0.7rem, 0.05em);
+  color: $grey;
+  margin-bottom: 0.2rem;
+}
+
+.orden-fecha {
+  @include font-mono(0.72rem);
+  color: $dark;
+  font-weight: 500;
+}
+
+.orden-productos {
+  font-size: 0.82rem;
+  color: $grey;
+  margin-top: 0.15rem;
+}
+
+.orden-total {
+  @include font-display(1.1rem, 700);
+  color: $dark;
+  white-space: nowrap;
+}
+
+// Estado de orden
+.orden-estado {
+  @include font-mono(0.58rem, 0.15em);
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  font-weight: 600;
+
+  &.estado-entregado  { background: #e6f4ea; color: #2d6a4f; }
+  &.estado-enviado    { background: #e8f0fe; color: #1a56db; }
+  &.estado-procesando { background: #fff3e0; color: #b45309; }
+  &.estado-pendiente  { background: rgba($dark, 0.07); color: $grey; }
+  &.estado-cancelado  { background: #fce8e8; color: #c0392b; }
+}
+
+// ── Vinilos favoritos ────────────────────────
+.vinilo-fav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba($dark, 0.07);
+  text-decoration: none;
+  color: $dark;
+  transition: $transition-base;
+
+  &:last-child { border-bottom: none; padding-bottom: 0; }
+
+  &:hover {
+    color: $blue;
+    transform: translateX(4px);
+  }
+}
+
+.vinilo-fav-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba($dark, 0.1);
+}
+
+.vinilo-fav-placeholder {
+  width: 48px;
+  height: 48px;
+  background: $dark;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.vinilo-fav-titulo {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: inherit;
+  margin-bottom: 0.1rem;
+}
+
+.vinilo-fav-artista {
+  @include font-mono(0.7rem);
+  color: $grey;
+}
+
+.vinilo-fav-precio {
+  @include font-mono(0.75rem);
+  color: $dark;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+// ── Botón editar perfil ──────────────────────
+.btn-editar {
+  @include btn-sideb(transparent, $dark);
+  border: 1px solid rgba($dark, 0.3) !important;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.72rem;
+
+  &:hover {
+    background-color: $dark !important;
+    color: white !important;
+    border-color: $dark !important;
+    transform: none;
+  }
+}
+
+.btn-cerrar-sesion {
+  @include btn-sideb(transparent, #c0392b);
+  border: 1px solid rgba(#c0392b, 0.3) !important;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.72rem;
+
+  &:hover {
+    background-color: #c0392b !important;
+    color: white !important;
+    border-color: #c0392b !important;
+    transform: none;
+  }
+}
+
+// ── Sección principal ────────────────────────
+.perfil-contenido {
+  padding: 3rem 0 5rem;
+}
+
+// ── Responsive ──────────────────────────────
+@media (max-width: 768px) {
+  .perfil-header {
+    padding: 2rem 0 3.5rem;
+    text-align: center;
+  }
+
+  .perfil-avatar {
+    margin: 0 auto 1.25rem;
+  }
+
+  .perfil-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .perfil-card {
+    padding: 1.5rem;
+  }
+
+  .orden-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
