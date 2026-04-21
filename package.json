@@ -4,7 +4,7 @@
   "description": "Side B — Tienda de Vinilos",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "sass:build": "sass --load-path=node_modules src/scss/inicio.scss:public/css/inicio.css src/scss/catalogo.scss:public/css/catalogo.css src/scss/carrito.scss:public/css/carrito.css src/scss/landing-page.scss:public/css/landing-page.css src/scss/forms.scss:public/css/forms.css src/scss/sesion.scss:public/css/sesion.css --style=compressed --no-source-map",
+    "sass:build": "sass --load-path=node_modules src/scss/inicio.scss:public/css/inicio.css src/scss/catalogo.scss:public/css/catalogo.css src/scss/carrito.scss:public/css/carrito.css src/scss/landing-page.scss:public/css/landing-page.css src/scss/forms.scss:public/css/forms.css src/scss/sesion.scss:public/css/sesion.css src/scss/perfil.scss:public/css/perfil.css --style=compressed --no-source-map",
     "sass:dev": "sass --load-path=node_modules --watch src/scss:public/css"
   },
   "devDependencies": {

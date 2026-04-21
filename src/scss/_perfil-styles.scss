@@ -1,0 +1,264 @@
+.perfil-header {
+  background-color: #2d2c2d;
+  padding: 3rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.perfil-header::before {
+  content: "B";
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 35vw;
+  color: rgba(255, 255, 255, 0.03);
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  line-height: 1;
+  pointer-events: none;
+  font-style: italic;
+  z-index: 0;
+}
+
+.perfil-header .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+.perfil-tag {
+  font-family: monospace;
+  letter-spacing: 0.25em;
+  font-size: 0.65rem;
+  color: #2176ff;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.perfil-nombre {
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.perfil-nombre em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.perfil-email {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0;
+}
+
+.perfil-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #2176ff;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.perfil-avatar span {
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: white;
+  line-height: 1;
+}
+
+.perfil-badge {
+  display: inline-block;
+  font-family: monospace;
+  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  background-color: #2176ff;
+  color: #2d2c2d;
+  padding: 0.2rem 0.7rem;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.perfil-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.stat-item .stat-numero {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white;
+  line-height: 1;
+}
+.stat-item .stat-label {
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.perfil-card {
+  background: white;
+  border: 1px solid rgba(45, 44, 45, 0.1);
+  padding: 2rem;
+  height: fit-content;
+}
+.perfil-card .card-tag {
+  font-family: monospace;
+  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #2176ff;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.perfil-card .card-titulo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #2d2c2d;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(45, 44, 45, 0.08);
+  padding-bottom: 1rem;
+}
+
+.info-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(45, 44, 45, 0.06);
+}
+.info-campo:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.info-campo .campo-label {
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #6d6d6d;
+}
+.info-campo .campo-valor {
+  font-size: 0.95rem;
+  color: #2d2c2d;
+  font-weight: 400;
+}
+
+.orden-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(45, 44, 45, 0.07);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.orden-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.orden-id {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  color: #6d6d6d;
+  margin-bottom: 0.2rem;
+}
+
+.orden-fecha {
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: #2d2c2d;
+  font-weight: 500;
+}
+
+.orden-productos {
+  font-size: 0.82rem;
+  color: #6d6d6d;
+  margin-top: 0.15rem;
+}
+
+.orden-total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d2c2d;
+  white-space: nowrap;
+}
+
+.orden-estado {
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.orden-estado.estado-entregado {
+  background: #e6f4ea;
+  color: #2d6a4f;
+}
+.orden-estado.estado-enviado {
+  background: #e8f0fe;
+  color: #1a56db;
+}
+.orden-estado.estado-procesando {
+  background: #fff3e0;
+  color: #b45309;
+}
+.orden-estado.estado-pendiente {
+  background: rgba(45, 44, 45, 0.07);
+  color: #6d6d6d;
+}
+.orden-estado.estado-cancelado {
+  background: #fce8e8;
+  color: #c0392b;
+}
+
+.perfil-contenido {
+  padding: 3rem 0 5rem;
+}
+
+/* Fix text colors that clash or are weird */
+.perfil-nombre, .perfil-email, .perfil-stats .stat-numero, .perfil-stats .stat-label {
+   /* They were white originally since header had dark bg. We'll keep them as they were mapped in the extracted css */
+}
+
+@media (max-width: 768px) {
+  .perfil-header {
+    padding: 2rem 0 3.5rem;
+    text-align: center;
+  }
+  .perfil-avatar {
+    margin: 0 auto 1.25rem;
+  }
+  .perfil-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .perfil-card {
+    padding: 1.5rem;
+  }
+  .orden-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

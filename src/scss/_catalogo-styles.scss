@@ -16,3 +16,16 @@
 #boton-menos {
   min-width: 2.5rem;
 }
+
+// Buscador
+#buscador-catalogo {
+  border: 2px solid #2d2c2d !important;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    border-color: #2176ff !important;
+    box-shadow: 0 0 0 0.25rem rgba(33, 118, 255, 0.25) !important;
+    outline: none;
+  }
+}

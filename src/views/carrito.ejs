@@ -13,41 +13,47 @@
                     </div>
                     <!--Finaliza-->
 
-                    <div
-                        class="pago  d-flex flex-column align-items-center justify-content-center card-body col-12 col-lg-4 col-md-12 border border-dark p-3">
-
-                        <h4 class="card-title">Resumen del pedido</h4>
-                        <div class="w-100 mt-3 d-flex flex-column">
-                            <p class="fs-5 mb-0" id="cart-subtotal">Subtotal: $0.00</p>
-                            <p class="fs-5 mb-0" id="cart-envio">Envío: $5.00</p>
-                            <p class="fs-5 mb-0 fw-bold" id="cart-total">Total: $0.00</p>
+                    <div class="pago d-flex flex-column card-body col-12 col-lg-4 col-md-12 border-0 bg-white p-4 p-md-5 shadow-sm" style="height: fit-content;">
+                        <p class="section-tag mb-2">RESUMEN DEL PEDIDO</p>
+                        
+                        <div class="w-100 mt-4 d-flex flex-column gap-3 mb-4">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted font-monospace small">SUBTOTAL</span>
+                                <span class="fw-bold" id="cart-subtotal">...</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted font-monospace small">ENVÍO</span>
+                                <span class="fw-bold" id="cart-envio">...</span>
+                            </div>
+                            <hr class="opacity-10 my-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-6 font-monospace">TOTAL</span>
+                                <span class="product-price fs-4" id="cart-total">$0.00</span>
+                            </div>
                         </div>
 
-                        <div class="metodos-pago mt-3 w-100">
-                            <h4 class="fs-4">Metodos de pago</h4>
+                        <div class="metodos-pago mt-2 w-100 mb-4">
+                            <p class="section-tag mb-3" style="font-size: 0.6rem; color: #6d6d6d;">MÉTODO DE PAGO</p>
 
-                            <div class="btn d-flex p-3 border border-dark justify-content-between">
+                            <label class="btn d-flex p-3 border border-dark justify-content-between mb-2 align-items-center rounded-0 w-100" style="cursor: pointer;">
                                 <div class="d-flex justify-content-between align-items-center w-100 me-2">
-                                    <label for="metodo-pago">Tarjeta de credito</label>
-                                    <img class="img-fluid" style="height: 30px;" src="../assets/images/master-card.webp"
-                                        alt="Mastercard">
+                                    <span class="fw-medium" style="font-size: 0.9rem;">Tarjeta de crédito</span>
+                                    <img class="img-fluid" style="height: 25px;" src="../assets/images/master-card.webp" alt="Mastercard">
                                 </div>
-                                <input type="radio" name="metodo-pago" id="metodo-pago">
-                            </div>
+                                <input type="radio" name="metodo-pago" id="metodo-pago-tarjeta" checked>
+                            </label>
 
-                            <div class="btn d-flex p-3 border border-dark justify-content-between">
+                            <label class="btn d-flex p-3 border border-dark justify-content-between align-items-center rounded-0 w-100" style="cursor: pointer;">
                                 <div class="d-flex justify-content-between align-items-center w-100 me-2">
-                                    <label for="metodo-pago">Paypal</label>
-                                    <img class="img-fluid" style="height: 30px;" src="../assets/images/paypal.png"
-                                        alt="Paypal">
+                                    <span class="fw-medium" style="font-size: 0.9rem;">PayPal</span>
+                                    <img class="img-fluid" style="height: 22px;" src="../assets/images/paypal.png" alt="Paypal">
                                 </div>
-                                <input type="radio" name="metodo-pago" id="metodo-pago">
-                            </div>
-
+                                <input type="radio" name="metodo-pago" id="metodo-pago-paypal">
+                            </label>
                         </div>
-                        <button id="btn-pagar" class="btn btn-dark w-80 mt-4 py-2 fw-bold">PAGAR</button>
-                        <button id="btn-vaciar-carrito" class="btn btn-outline-danger w-80 mt-2 py-2 fw-bold">VACIAR CARRITO</button>
-
+                        
+                        <button id="btn-pagar" class="btn-add-cart w-100 mt-2 py-3 text-center border-0">PAGAR</button>
+                        <button id="btn-vaciar-carrito" class="btn text-danger w-100 mt-2 py-2 fw-medium border-0" style="font-size: 0.8rem;">Vaciar mi carrito</button>
                     </div>
                 </div>
             </div>

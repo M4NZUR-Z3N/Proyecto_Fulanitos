@@ -1,85 +1,51 @@
-// ============================================================
-//  index.js — Servidor principal de Side B
-// ============================================================
-
+// Configuración principal del servidor Side B
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const app = express();
 
-//Cargar variables
+// Variables de entorno
 dotenv.config();
 
-// Motor de plantillas
+// Configuración de vistas (EJS)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Archivos estáticos (css, js, assets)
+// Carpeta de archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Middlewares globales
-app.use(express.json()); //Para que el servidor entienda JSON
+// Middlewares obligatorios
+app.use(express.json()); // Entender datos en formato JSON
+app.use(morgan('dev')); // Ver logs de las peticiones
+app.use(express.urlencoded({ extended: true })); // Entender datos de formularios
 
-app.use(morgan('dev')); //Para ver las peticiones en consola
-
-app.use(express.urlencoded({ extended: true })); //Para que el servidor entienda formularios
-
-//Importamos la funcion que conecta la DB
+// Conexión a la base de datos
 const conectarDB = require('./config/db');
-
-//Conectamos a la DB
 conectarDB();
 
-//Importamos las rutas
+// Rutas de la API
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const carritoRoutes = require('./routes/carritoRoutes');
 const ordenesRoutes = require('./routes/ordenesRoutes');
 
-//Rutas
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/carrito', carritoRoutes);
 app.use('/api/ordenes', ordenesRoutes);
 
-// Ruta principal
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// Vistas del sitio (Frontend)
+app.get('/', (req, res) => res.render('index'));
+app.get('/registro', (req, res) => res.render('registro'));
+app.get('/sesion', (req, res) => res.render('sesion'));
+app.get('/catalogo', (req, res) => res.render('catalogo'));
+app.get('/carrito', (req, res) => res.render('carrito'));
+app.get('/perfil', (req, res) => res.render('perfil'));
+app.get('/landing', (req, res) => res.render('landing-page'));
 
-// Ruta registro
-app.get('/registro', (req, res) => {
-  res.render('registro');
-});
-
-// Ruta login
-app.get('/sesion', (req, res) => {
-  res.render('sesion');
-});
-
-// Ruta catalogo
-app.get('/catalogo', (req, res) => {
-  res.render('catalogo');
-});
-
-// Ruta carrito
-app.get('/carrito', (req, res) => {
-  res.render('carrito');
-});
-
-// Ruta perfil
-app.get('/perfil', (req, res) => {
-  res.render('perfil');
-});
-
-// Ruta landing page
-app.get('/landing', (req, res) => {
-  res.render('landing-page');
-});
-
-// Iniciar servidor
-const PORT = process.env.PORT;
+// Encender el servidor
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`\n🎵  Side B corriendo en http://localhost:${PORT}\n`);
+  console.log(`\n Side B sonando en http://localhost:${PORT}\n`);
 });
 
 module.exports = app;

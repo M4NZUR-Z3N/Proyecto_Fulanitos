@@ -42,4 +42,28 @@ const obtenerCarrito = async (req, res) => {
     }
 };
 
-module.exports = { agregarCarrito, obtenerCarrito, vaciarCarrito };
+const actualizarCantidad = async (req, res) => {
+    try {
+        const { productoId, cantidad } = req.body;
+        const usuario = await Usuario.findById(req.usuario.id);
+
+        if (!usuario) return res.status(404).json({ ok: false, mensaje: 'Usuario no encontrado' });
+
+        const itemIndex = usuario.carrito.findIndex(item => item.productoId === String(productoId));
+        if (itemIndex > -1) {
+            if (cantidad > 0) {
+                usuario.carrito[itemIndex].cantidad = cantidad;
+            } else {
+                usuario.carrito.splice(itemIndex, 1);
+            }
+            await usuario.save();
+            return res.status(200).json({ ok: true, mensaje: 'Cantidad actualizada', carrito: usuario.carrito });
+        } else {
+            return res.status(404).json({ ok: false, mensaje: 'Producto no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ ok: false, mensaje: 'Error al actualizar', error: error.message });
+    }
+};
+
+module.exports = { agregarCarrito, obtenerCarrito, vaciarCarrito, actualizarCantidad };

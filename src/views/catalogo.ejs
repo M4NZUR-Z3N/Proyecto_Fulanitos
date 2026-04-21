@@ -3,11 +3,12 @@
 
     <main role="main" style="min-height: 80vh;">
         <div class=" container d-flex flex-column justify-content-center align-items-center ">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center w-100 mt-4 px-2 px-md-5">
-                <div class="invisible d-none d-md-block" style="width: 250px;"></div>
-                <h1 class="text-center m-0">Catálogo</h1>
-                <div class="mt-3 mt-md-0" style="width: 100%; max-width: 250px;">
-                    <input type="text" id="buscador-catalogo" class="form-control" placeholder="Buscar...">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100 mt-4 px-2 shadow-none"
+                style="padding-left: 5% !important; padding-right: 5% !important;">
+                <div class="invisible d-none d-lg-block" style="width: 250px;"></div>
+                <h1 class="text-center m-0 fw-bold">Catálogo</h1>
+                <div class="mt-3 mt-lg-0" style="width: 100%; max-width: 250px;">
+                    <input type="text" id="buscador-catalogo" class="form-control" placeholder="Buscar vinilo...">
                 </div>
             </div>
 
@@ -21,35 +22,49 @@
                 <div
                     class="col-11 col-md-10 col-lg-8 d-flex flex-column flex-md-row shadow-lg rounded overflow-hidden bg-white my-auto">
 
-                    <div class="col-12 col-md-6 p-0" style="aspect-ratio: 1/1;">
-                        <img id="detalle-cover" class="img-fluid h-100"
+                    <div
+                        class="col-12 col-md-5 col-lg-6 p-0 overflow-hidden d-flex align-items-center bg-dark position-relative">
+                        <button id="btn-cerrar-movil"
+                            class="d-md-none position-absolute top-0 end-0 m-3 bg-dark text-danger rounded px-3 py-1 border-0 fw-bold shadow"
+                            style="font-size: 1.2rem; z-index: 10;">&times;</button>
+                        <img id="detalle-cover" class="w-100"
                             src="../assets/images/portadas/michael-jackson-thriller.jpg" alt="Portada del álbum"
-                            style="object-fit: cover;">
+                            style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
                     </div>
-                    <div class="col-12 col-md-6 d-flex flex-column justify-content-between g-2 p-3 p-lg-4 bg-white">
+                    <div
+                        class="col-12 col-md-7 col-lg-6 d-flex flex-column justify-content-between g-2 p-4 p-lg-5 bg-white position-relative">
+                        <button id="btn-cerrar-desktop"
+                            class="d-none d-md-block position-absolute top-0 end-0 m-3 bg-dark text-white rounded px-3 py-1 border-0 fw-bold shadow"
+                            style="font-size: 1.2rem; z-index: 10;">&times;</button>
                         <div>
-                            <p id="detalle-titulo" class="fs-4 fw-bold">Cargando...</p>
-                            <p id="detalle-artista" class="fs-4">Artista: Cargando...</p>
-                            <p id="detalle-genero" class="fs-4">Género: Cargando...</p>
-                            <p id="detalle-anio" class="fs-4">Año de lanzamiento: Cargando...</p>
-                            <p id="detalle-formato" class="fs-4">Formato: Cargando...</p>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="precios d-flex flex-column">
-                                    <span id="detalle-precio" class="fs-5 text-dark">Precio unitario: $ 10</span>
-                                    <span id="detalle-precio-total" class="fs-5 text-dark">Precio total: $ 10</span>
-                                </div>
-                                <div class="cantidad d-flex flex-column">
-                                    <p class="fs-5 text-dark">Cantidad: <span id="cantidad">1</span></p>
-                                    <div class="d-flex justify-content-between">
-                                        <button id="boton-menos" class="btn btn-dark">-</button>
-                                        <button id="boton-mas" class="btn btn-dark">+</button>
-                                    </div>
+                            <p class="section-tag mb-2">DETALLE DEL DISCO</p>
+                            <p id="detalle-titulo" class="product-title mb-1" style="font-size: 2rem;">Cargando...</p>
+                            <p id="detalle-artista" class="product-artist fs-6 mb-4">Artista: Cargando...</p>
 
+                            <hr class="opacity-10 my-3">
+                            <p id="detalle-genero" class="fs-6 text-muted mb-1"><strong>Género:</strong> Cargando...</p>
+                            <p id="detalle-anio" class="fs-6 text-muted mb-1"><strong>Año:</strong> Cargando...</p>
+                            <p id="detalle-formato" class="fs-6 text-muted mb-4"><strong>Formato:</strong> Cargando...
+                            </p>
+                        </div>
+                        <div class="d-flex flex-column mt-auto pt-3 border-top gap-3">
+                            <div class="precios d-flex flex-column gap-1">
+                                <span id="detalle-precio" class="fs-6 text-muted">Precio Unitario: $10</span>
+                                <span id="detalle-precio-total" class="product-price">Precio total: $10</span>
+                            </div>
+
+                            <div class="cantidad d-flex align-items-center gap-3">
+                                <span class="fs-6 text-dark fw-bold">Cantidad:</span>
+                                <div class="d-flex bg-light rounded px-2 py-1 align-items-center border">
+                                    <button id="boton-menos"
+                                        class="btn btn-sm btn-link text-dark text-decoration-none px-2 py-0 fw-bold">-</button>
+                                    <span id="cantidad" class="px-2 fw-medium">1</span>
+                                    <button id="boton-mas"
+                                        class="btn btn-sm btn-link text-dark text-decoration-none px-2 py-0 fw-bold">+</button>
                                 </div>
                             </div>
-                            <button id="boton-añadir" class="btn btn-dark w-80 mt-4 py-2 fw-bold ">AÑADIR AL
+
+                            <button id="boton-añadir" class="btn-add-cart w-100 text-center py-3 mt-1">AÑADIR AL
                                 CARRITO</button>
                         </div>
                     </div>
@@ -64,11 +79,13 @@
         <!--Termina el div de discos-->
 
         <ul class="pagination mt-3 mb-5 justify-content-center" id="paginacion-container">
-            <li class="page-item"><a id="page-prev" class="rounded-start btn btn-dark z-1" href="#discos">Anterior</a></li>
+            <li class="page-item"><a id="page-prev" class="rounded-start btn btn-dark z-1" href="#discos">Anterior</a>
+            </li>
             <li class="page-item"><a id="page-1" class="btn btn-dark z-1 active-page" href="#discos">1</a></li>
             <li class="page-item"><a id="page-2" class="btn btn-dark z-1" href="#discos">2</a></li>
             <li class="page-item"><a id="page-3" class="btn btn-dark z-1" href="#discos">3</a></li>
-            <li class="page-item"><a id="page-next" class="rounded-end btn btn-dark z-1" href="#discos">Siguiente</a></li>
+            <li class="page-item"><a id="page-next" class="rounded-end btn btn-dark z-1" href="#discos">Siguiente</a>
+            </li>
         </ul>
     </main>
 

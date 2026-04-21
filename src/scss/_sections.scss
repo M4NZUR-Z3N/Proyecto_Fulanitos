@@ -32,38 +32,63 @@
 }
 
 .genre-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 1.75rem 1rem;
-  background: white;
-  border: 1px solid rgba($dark, 0.08);
+  aspect-ratio: 1/1;
+  background: $dark;
   border-radius: 2px;
   text-decoration: none;
-  color: $dark;
-  transition: $transition-base;
-  text-align: center;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
-    background: $dark;
-    color: white;
-    border-color: $dark;
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba($dark, 0.2);
+    box-shadow: 0 12px 30px rgba($dark, 0.3);
+
+    .genre-img {
+      transform: scale(1.05);
+    }
+    
+    .genre-overlay {
+      background: rgba(0,0,0,0.2) !important;
+    }
   }
 }
 
-.genre-icon {
-  font-size: 2rem;
-  line-height: 1;
+.genre-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.genre-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+  z-index: 1;
 }
 
 .genre-card span {
-  @include font-mono(0.75rem, 0.1em);
+  @include font-mono(1rem, 0.15em);
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
+  color: white;
+  z-index: 2;
 }
 
 // ── Destacados ───────────────────────────
