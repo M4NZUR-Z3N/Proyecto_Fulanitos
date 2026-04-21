@@ -7,6 +7,7 @@ const botonMenos = document.getElementById('boton-menos');
 const spanCantidad = document.getElementById('cantidad');
 const discos = document.getElementById('discos');
 const spanPrecioTotal = document.getElementById('detalle-precio-total');
+const botonLogin = document.getElementById('boton-login-catalogo');
 
 // Variables de estado
 let cantidad = 1;
@@ -20,17 +21,25 @@ function abrirDetalles() {
     bgBorroso.classList.remove('d-none');
 
     // Solo permitir añadir al carrito si el usuario inició sesión
-    const cantidadCont = document.querySelector('.cantidad');
+    const cantidadCont = document.getElementById('contenedor-cantidad');
     const precioTotalCont = document.getElementById('detalle-precio-total');
 
     if (window.enSesion) {
-        botonAñadir.style.display = '';
-        if (cantidadCont) cantidadCont.style.display = 'flex';
-        if (precioTotalCont) precioTotalCont.style.display = 'inline';
+        botonAñadir.classList.remove('d-none');
+        botonLogin.classList.add('d-none');
+        if (cantidadCont) {
+            cantidadCont.classList.remove('d-none');
+            cantidadCont.classList.add('d-flex');
+        }
+        if (precioTotalCont) precioTotalCont.classList.remove('d-none');
     } else {
-        botonAñadir.style.display = 'none';
-        if (cantidadCont) cantidadCont.style.display = 'none';
-        if (precioTotalCont) precioTotalCont.style.display = 'none';
+        botonAñadir.classList.add('d-none');
+        botonLogin.classList.remove('d-none');
+        if (cantidadCont) {
+            cantidadCont.classList.add('d-none');
+            cantidadCont.classList.remove('d-flex');
+        }
+        if (precioTotalCont) precioTotalCont.classList.add('d-none');
     }
 }
 
