@@ -10,6 +10,7 @@ const {
   obtenerOrdenPorId,
   obtenerTodasLasOrdenes,
   actualizarEstadoOrden,
+  cancelarOrden
 } = require('../controllers/ordenesController');
 const { verificarToken, soloAdmin } = require('../middlewares/authMiddleware');
 
@@ -19,6 +20,7 @@ router.use(verificarToken);
 router.post('/', crearOrden);
 router.get('/mis-ordenes', obtenerMisOrdenes);
 router.get('/:id', obtenerOrdenPorId);
+router.patch('/:id/cancelar', cancelarOrden);
 
 // Solo admin
 router.get('/', soloAdmin, obtenerTodasLasOrdenes);

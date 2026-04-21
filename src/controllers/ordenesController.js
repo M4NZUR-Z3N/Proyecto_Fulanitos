@@ -16,7 +16,7 @@ const crearOrden = async (req, res) => {
       subtotal,
       envio,
       total,
-      estado: 'completado'
+      estado: 'procesando'
     });
 
     await nuevaOrden.save();
@@ -80,6 +80,31 @@ const obtenerTodasLasOrdenes = async (req, res) => {
   }
 };
 
+const cancelarOrden = async (req, res) => {
+  try {
+    const orden = await Orden.findById(req.params.id);
+
+    if (!orden) {
+      return res.status(404).json({ ok: false, mensaje: 'Orden no encontrada.' });
+    }
+
+    if (orden.usuarioId.toString() !== req.usuario.id) {
+      return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para cancelar esta orden.' });
+    }
+
+    if (orden.estado !== 'procesando' && orden.estado !== 'pendiente') {
+      return res.status(400).json({ ok: false, mensaje: 'Solo puedes cancelar órdenes que están procesándose o pendientes.' });
+    }
+
+    orden.estado = 'cancelado';
+    await orden.save();
+
+    res.status(200).json({ ok: true, mensaje: 'La orden ha sido cancelada exitosamente.', orden });
+  } catch (error) {
+    res.status(500).json({ ok: false, mensaje: 'Error al cancelar la orden.', error: error.message });
+  }
+};
+
 const actualizarEstadoOrden = async (req, res) => {
   try {
     const { estado } = req.body;
@@ -114,4 +139,5 @@ module.exports = {
   obtenerOrdenPorId,
   obtenerTodasLasOrdenes,
   actualizarEstadoOrden,
+  cancelarOrden
 };

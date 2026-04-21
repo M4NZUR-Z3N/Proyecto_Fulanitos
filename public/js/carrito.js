@@ -132,4 +132,44 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+    const btnVaciar = document.getElementById('btn-vaciar-carrito');
+    if (btnVaciar) {
+        btnVaciar.addEventListener('click', async () => {
+            if (typeof carritoParaPagar === 'undefined' || carritoParaPagar.length === 0) {
+                Swal.fire({icon: 'info', title: 'Aviso', text: 'El carrito ya está vacío.'});
+                return;
+            }
+
+            const result = await Swal.fire({
+                title: '¿Estás seguro?',
+                text: "Se eliminarán todos los productos de tu carrito.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, vaciar',
+                cancelButtonText: 'Cancelar'
+            });
+
+            if (result.isConfirmed) {
+                try {
+                    const res = await fetch('/api/carrito/vaciar', {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    
+                    if (res.ok) {
+                        Swal.fire('Vaciado', 'Tu carrito ha sido vaciado.', 'success').then(() => {
+                            window.location.reload();
+                        });
+                    } else {
+                        Swal.fire('Error', 'No se pudo vaciar el carrito.', 'error');
+                    }
+                } catch (error) {
+                    Swal.fire('Error', 'Problema de conexión.', 'error');
+                }
+            }
+        });
+    }
 });

@@ -22,6 +22,15 @@ const agregarCarrito = async (req, res) => {
     }
 };
 
+const vaciarCarrito = async (req, res) => {
+    try {
+        await Usuario.findByIdAndUpdate(req.usuario.id, { $set: { carrito: [] } });
+        res.status(200).json({ ok: true, mensaje: 'Carrito vaciado exitosamente.' });
+    } catch (error) {
+        res.status(500).json({ ok: false, mensaje: 'Error al vaciar carrito', error: error.message });
+    }
+};
+
 const obtenerCarrito = async (req, res) => {
     try {
         const usuario = await Usuario.findById(req.usuario.id);
@@ -33,4 +42,4 @@ const obtenerCarrito = async (req, res) => {
     }
 };
 
-module.exports = { agregarCarrito, obtenerCarrito };
+module.exports = { agregarCarrito, obtenerCarrito, vaciarCarrito };

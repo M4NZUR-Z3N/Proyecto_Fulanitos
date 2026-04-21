@@ -71,11 +71,6 @@ app.get('/perfil', (req, res) => {
   res.render('perfil');
 });
 
-// Ruta done
-app.get('/done', (req, res) => {
-  res.render('done');
-});
-
 // Ruta landing page
 app.get('/landing', (req, res) => {
   res.render('landing-page');

@@ -137,4 +137,40 @@ const obtenerUsuarios = async (req, res) => {
   }
 };
 
-module.exports = { registrar, login, obtenerPerfil, obtenerUsuarios };
+const actualizarPerfil = async (req, res) => {
+  try {
+    const { nombre, apellido, telefono } = req.body;
+    const usuarioActualizado = await Usuario.findByIdAndUpdate(
+      req.usuario.id,
+      { nombre, apellido, telefono },
+      { new: true }
+    );
+    
+    if (!usuarioActualizado) {
+      return res.status(404).json({ ok: false, mensaje: 'Usuario no encontrado.' });
+    }
+    
+    res.status(200).json({ ok: true, mensaje: 'Perfil actualizado exitosamente.', usuario: usuarioActualizado });
+  } catch (error) {
+    res.status(500).json({ ok: false, mensaje: 'Error al actualizar el perfil.', error: error.message });
+  }
+};
+
+const eliminarCuenta = async (req, res) => {
+  try {
+    const { id } = req.usuario;
+    
+    // Eliminar base del usuario
+    await Usuario.findByIdAndDelete(id);
+
+    // Como extra sano: borrar todas sus ordenes también (o se puede dejar para auditoria)
+    const Orden = require('../models/orden');
+    await Orden.deleteMany({ usuarioId: id });
+
+    res.status(200).json({ ok: true, mensaje: 'Cuenta eliminada para siempre.' });
+  } catch (error) {
+    res.status(500).json({ ok: false, mensaje: 'Error al eliminar cuenta.', error: error.message });
+  }
+};
+
+module.exports = { registrar, login, obtenerPerfil, obtenerUsuarios, actualizarPerfil, eliminarCuenta };
